@@ -506,6 +506,7 @@ export default function Home() {
   const [currentFeat, setCurrentFeat] = useState(0);
   const [featDirection, setFeatDirection] = useState(1);
   const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
+  const videoRef = useRef(null);
 
   const handleNext = () => {
     setFeatDirection(1);
@@ -532,19 +533,46 @@ export default function Home() {
       {/* ================================================================
           SECTION 1 — HERO (background: #020D1A)
           ================================================================ */}
-      <section style={{
+      <section 
+        onClick={() => { 
+          if (videoRef.current) { 
+            videoRef.current.muted = false; 
+            if (videoRef.current.paused) {
+              videoRef.current.play();
+            } else {
+              videoRef.current.pause();
+            }
+          } 
+        }}
+        style={{
         position: 'relative',
         overflow: 'hidden',
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        background: "linear-gradient(rgba(2, 13, 26, 0.25), rgba(2, 13, 26, 0.25)), url('/hero-bg.png') no-repeat center center / cover"
+        backgroundColor: '#020D1A'
       }}>
+
+        <video 
+          ref={videoRef}
+          playsInline 
+          style={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 1,
+            top: 0,
+            left: 0
+          }}
+        >
+          <source src="/home%20hero%20section%203.mp4" type="video/mp4" />
+        </video>
 
         {/* 3D background components removed */}
 
         {/* Layer 3: Radial gradient overlay */}
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 60% 50%, rgba(127,205,255,0.06), transparent 70%)', zIndex: 2, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(rgba(2, 13, 26, 0.4), rgba(2, 13, 26, 0.4)), radial-gradient(ellipse 70% 60% at 60% 50%, rgba(127,205,255,0.06), transparent 70%)', zIndex: 2, pointerEvents: 'none' }} />
 
         {/* Layer 4: Content */}
         <div style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '1280px', margin: '0 auto', padding: isDesktop ? '120px 80px 80px' : '100px 24px 60px' }}>
@@ -634,7 +662,7 @@ export default function Home() {
               <div style={{ position: 'relative', height: 480 }}>
                 {/* UI Mockup Card */}
                 <motion.div
-                  style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 10, width: 320 }}
+                  style={{ position: 'absolute', bottom: '-40px', right: '-40px', zIndex: 10, width: 320 }}
                   animate={{ y: [0, -12, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 >
