@@ -25,7 +25,7 @@ const Youtube = ({ size = 18 }) => (
 // Cream/off-white footer background
 const FOOTER_BG = '#F6F4F0';
 
-export default function Footer() {
+export default function Footer({ noCta = false }) {
     return (
         <footer style={{
             background: FOOTER_BG,
@@ -34,10 +34,11 @@ export default function Footer() {
             position: 'relative',
             // Extra top padding so the floating CTA card (which is translateY(-50%)) 
             // has room to sit half above the footer boundary
-            paddingTop: '0',
+            paddingTop: noCta ? '40px' : '0',
         }}>
 
             {/* ── Floating CTA Banner ── sits half above, half below the footer border */}
+            {!noCta && (
             <div style={{ padding: '0 2rem' }}>
                 <div style={{
                     maxWidth: '1280px',
@@ -118,11 +119,12 @@ export default function Footer() {
                             </Link>
                         </div>
                     </div>
+                    </div>
                 </div>
-            </div>
+            )}
 
             {/* ── Main Links Grid ── negative margin-top pulls content up under the floating card */}
-            <div style={{ maxWidth: '1280px', margin: '-60px auto 0', padding: '0 2rem 64px' }}>
+            <div style={{ maxWidth: '1280px', margin: noCta ? '0 auto 0' : '-60px auto 0', padding: '0 2rem 64px' }}>
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: '1.6fr 1fr 1fr 1fr 1fr',

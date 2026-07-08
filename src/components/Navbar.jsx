@@ -1,19 +1,19 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { 
-  Phone, 
+import {
+  Phone,
   PhoneIncoming,
-  PhoneOutgoing, 
-  Zap, 
-  MousePointer, 
-  Mic, 
-  MessageSquare, 
-  MessageCircle, 
-  Bot, 
-  BarChart2, 
-  Link as LinkIcon, 
-  ChevronDown, 
-  Menu, 
+  PhoneOutgoing,
+  Zap,
+  MousePointer,
+  Mic,
+  MessageSquare,
+  MessageCircle,
+  Bot,
+  BarChart2,
+  Link as LinkIcon,
+  ChevronDown,
+  Menu,
   X,
   Users,
   Target,
@@ -76,7 +76,7 @@ export default function Navbar() {
   const handleDismiss = () => {
     try {
       localStorage.setItem('voxiq_bar_dismissed', 'true');
-    } catch {}
+    } catch { }
     setAnnouncementDismissed(true);
   };
 
@@ -224,20 +224,20 @@ export default function Navbar() {
           {/* Center Links (Desktop) */}
           {!isAuthPage && (
             <div style={{ display: 'flex', gap: '8px', alignItems: 'center', height: '64px' }} className="nav-links">
-              
+
               {/* Products Link with Dropdown */}
-              <div 
+              <div
                 onMouseEnter={() => handleProductsEnter()}
                 onMouseLeave={handleProductsLeave}
                 style={{ height: '100%', display: 'flex', alignItems: 'center', position: 'static' }}
               >
-                <span style={{ 
-                  cursor: 'pointer', 
-                  color: productsOpen ? '#0A2540' : '#475569', 
-                  fontWeight: 500, 
-                  fontSize: '14px', 
-                  display: 'flex', 
-                  alignItems: 'center', 
+                <span style={{
+                  cursor: 'pointer',
+                  color: productsOpen ? '#0A2540' : '#475569',
+                  fontWeight: 500,
+                  fontSize: '14px',
+                  display: 'flex',
+                  alignItems: 'center',
                   gap: '4px',
                   padding: '0 16px',
                   height: '100%',
@@ -300,9 +300,9 @@ export default function Navbar() {
                             {item.title}
                             {item.badge && (
                               <span style={{
-                                background: 'rgba(124,109,250,0.18)',
-                                border: '1px solid rgba(124,109,250,0.3)',
-                                color: '#A594F9',
+                                background: 'rgba(237, 237, 237, 0.18)',
+                                border: '1px solid rgba(0, 0, 0, 0.3)',
+                                color: '#2603d5ff',
                                 fontSize: '9px',
                                 padding: '1px 6px',
                                 borderRadius: '20px',
@@ -352,18 +352,18 @@ export default function Navbar() {
               </div>
 
               {/* Solutions Link with Dropdown */}
-              <div 
+              <div
                 onMouseEnter={() => handleSolutionsEnter()}
                 onMouseLeave={handleSolutionsLeave}
                 style={{ height: '100%', display: 'flex', alignItems: 'center', position: 'relative' }}
               >
-                <span style={{ 
-                  cursor: 'pointer', 
-                  color: solutionsOpen ? '#0A2540' : '#475569', 
-                  fontWeight: 500, 
-                  fontSize: '14px', 
-                  display: 'flex', 
-                  alignItems: 'center', 
+                <span style={{
+                  cursor: 'pointer',
+                  color: solutionsOpen ? '#0A2540' : '#475569',
+                  fontWeight: 500,
+                  fontSize: '14px',
+                  display: 'flex',
+                  alignItems: 'center',
                   gap: '4px',
                   padding: '0 16px',
                   height: '100%',
@@ -445,8 +445,8 @@ export default function Navbar() {
                   {/* Column 3: Featured Card */}
                   <div>
                     <div style={{
-                      background: 'linear-gradient(135deg, rgba(124, 109, 250, 0.08) 0%, rgba(91, 79, 232, 0.04) 100%)',
-                      border: '1px solid rgba(124, 109, 250, 0.15)',
+                      background: 'linear-gradient(135deg, rgba(127, 205, 255, 0.15) 0%, rgba(127, 205, 255, 0.05) 100%)',
+                      border: '1px solid rgba(127, 205, 255, 0.3)',
                       borderRadius: '14px',
                       padding: '20px',
                       height: '100%',
@@ -458,9 +458,9 @@ export default function Navbar() {
                       <div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                           <span style={{
-                            background: 'rgba(124, 109, 250, 0.15)',
-                            border: '1px solid rgba(124, 109, 250, 0.25)',
-                            color: '#7C6DFA',
+                            background: 'rgba(127, 205, 255, 0.2)',
+                            border: '1px solid rgba(127, 205, 255, 0.4)',
+                            color: '#0D3B6E',
                             fontSize: '10px',
                             fontWeight: 600,
                             letterSpacing: '0.08em',
@@ -488,9 +488,9 @@ export default function Navbar() {
                         </div>
                       </div>
                       <Link to="/solutions/ghl-agencies" onClick={() => setSolutionsOpen(false)} style={{
-                        background: 'rgba(124, 109, 250, 0.08)',
-                        border: '1px solid rgba(124, 109, 250, 0.15)',
-                        color: '#7C6DFA',
+                        background: 'rgba(127, 205, 255, 0.15)',
+                        border: '1px solid rgba(127, 205, 255, 0.3)',
+                        color: '#0D3B6E',
                         borderRadius: '8px',
                         padding: '9px 16px',
                         fontSize: '13px',
@@ -502,7 +502,7 @@ export default function Navbar() {
                         boxSizing: 'border-box',
                         transition: '0.15s'
                       }}
-                      className="featured-learn-more-btn"
+                        className="featured-learn-more-btn"
                       >
                         Learn more →
                       </Link>
@@ -533,7 +533,7 @@ export default function Navbar() {
             >
               Login
             </Link>
-            
+
             <Link
               to="/signup"
               style={{
@@ -633,10 +633,10 @@ export default function Navbar() {
 
             {/* Drawer Links List */}
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '20px', overflowY: 'auto' }}>
-              
+
               {/* Products Mobile Collapse */}
               <div>
-                <button 
+                <button
                   onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
                   style={{
                     width: '100%',
@@ -664,13 +664,13 @@ export default function Navbar() {
                     <Link to="/features/auto-dialer" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Auto Dialer</Link>
                     <Link to="/features/manual-dialer" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Manual Dialer</Link>
                     <Link to="/features/call-recording" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Call Recording</Link>
-                    
+
                     <h5 style={{ margin: '8px 0 2px', fontSize: '10px', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Messaging & AI</h5>
                     <Link to="/features/sms" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>SMS</Link>
                     <Link to="/features/whatsapp" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>WhatsApp</Link>
                     <Link to="/features/ai-agent" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>AI Agent Caller <span style={{ fontSize: '8px', color: '#A594F9', background: 'rgba(124, 109, 250, 0.15)', padding: '1px 4px', borderRadius: '3px' }}>NEW</span></Link>
                     <Link to="/features/analytics" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Analytics</Link>
-                    
+
                     <h5 style={{ margin: '8px 0 2px', fontSize: '10px', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Integrations</h5>
                     <Link to="/integrations" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>GoHighLevel (Native)</Link>
                     <Link to="/integrations/zapier" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Zapier</Link>
@@ -680,7 +680,7 @@ export default function Navbar() {
 
               {/* Solutions Mobile Collapse */}
               <div>
-                <button 
+                <button
                   onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
                   style={{
                     width: '100%',
@@ -707,7 +707,7 @@ export default function Navbar() {
                     <Link to="/solutions/sdr-teams" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>SDR / BDR Teams</Link>
                     <Link to="/solutions/small-business" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Small Business</Link>
                     <Link to="/solutions/enterprise" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Enterprise</Link>
-                    
+
                     <h5 style={{ margin: '8px 0 2px', fontSize: '10px', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.05em' }}>By Industry</h5>
                     <Link to="/solutions/real-estate" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Real Estate</Link>
                     <Link to="/solutions/insurance" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Insurance</Link>
@@ -788,7 +788,7 @@ export default function Navbar() {
           line-height: 1.2;
         }
         .dropdown-card-item:hover .dropdown-card-title {
-          color: #7C6DFA;
+          color: #2563EB !important;
         }
         .dropdown-card-desc {
           font-size: 12px;
@@ -815,8 +815,8 @@ export default function Navbar() {
           letter-spacing: -0.02em;
         }
         .prod-text-link:hover {
-          color: #0A2540;
-          background: #F1F5F9;
+          color: #2563EB !important;
+          background: #EFF6FF !important;
         }
         .prod-all-features-link:hover {
           color: #0A2540 !important;

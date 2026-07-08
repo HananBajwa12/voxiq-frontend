@@ -37,6 +37,9 @@ const SaaS = lazy(() => import('./pages/SaaS'))
 const Collections = lazy(() => import('./pages/Collections'))
 const GHLAgencies = lazy(() => import('./pages/GHLAgencies'))
 const SDRTeams = lazy(() => import('./pages/SDRTeams'))
+const SalesTeams = lazy(() => import('./pages/SalesTeams'))
+const SmallBusiness = lazy(() => import('./pages/SmallBusiness'))
+const Enterprise = lazy(() => import('./pages/Enterprise'))
 
 
 
@@ -130,9 +133,9 @@ function AppRoutes() {
           <Route path="/solutions/collections" element={<Collections />} />
           <Route path="/solutions/ghl-agencies" element={<GHLAgencies />} />
           <Route path="/solutions/sdr-teams" element={<SDRTeams />} />
-          <Route path="/solutions/sales-teams" element={<SDRTeams />} />
-          <Route path="/solutions/small-business" element={<SDRTeams />} />
-          <Route path="/solutions/enterprise" element={<SDRTeams />} />
+          <Route path="/solutions/sales-teams" element={<SalesTeams />} />
+          <Route path="/solutions/small-business" element={<SmallBusiness />} />
+          <Route path="/solutions/enterprise" element={<Enterprise />} />
 
 
           <Route path="/login" element={<Login />} />

@@ -17,6 +17,20 @@ import {
   ArrowUpRight
 } from 'lucide-react';
 
+const C = {
+  midnight: '#020D1A',
+  oceanDeep: '#0A2540',
+  oceanMid: '#0D3B6E',
+  breeze: '#7FCDFF',
+  breezeLight: '#DFF7FF',
+  foam: '#F0FBFF',
+  cream: '#FFFDF5',
+  white: '#FFFFFF',
+  liveGreen: '#00E5A0',
+  textLight: '#6B9AB8',
+  textMid: '#475569'
+};
+
 export default function HowItWorks() {
   const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState('dialing');
@@ -33,7 +47,7 @@ export default function HowItWorks() {
   }, [activeStep]);
 
   return (
-    <div style={{ background: '#020D1A', minHeight: '100vh', overflowX: 'hidden' }}>
+    <div style={{ background: C.midnight, minHeight: '100vh', overflowX: 'hidden' }}>
       
       {/* SECTION 1 — HEADER */}
                   <section style={{ 
@@ -74,7 +88,7 @@ export default function HowItWorks() {
           <div style={{ maxWidth: '58%', textAlign: 'left' }}>
             
             <span style={{
-              color: '#7FCDFF',
+              color: C.breeze,
               fontSize: '0.85rem',
               fontWeight: 800,
               textTransform: 'uppercase',
@@ -114,7 +128,7 @@ export default function HowItWorks() {
                 to="/signup"
                 style={{
                   textDecoration: 'none',
-                  background: 'rgb(223, 247, 255)', color: '#0A2540',
+                  background: C.breezeLight, color: C.oceanDeep,
                   padding: '16px 36px',
                   borderRadius: '10px',
                   fontWeight: 700,
@@ -154,7 +168,7 @@ export default function HowItWorks() {
       </section>
 
       {/* SECTION 2 — 3-STEP CARDS WITH CONNECTING LINES */}
-      <section style={{ padding: '80px 0', background: '#020D1A', position: 'relative' }}>
+      <section style={{ padding: '80px 0', background: C.breezeLight, position: 'relative' }}>
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           
           <div style={{ position: 'relative' }}>
@@ -165,7 +179,7 @@ export default function HowItWorks() {
               left: '12%',
               right: '12%',
               height: '1px',
-              background: '#E2E8F0',
+              background: '#93C5FD',
               zIndex: 0
             }} className="step-connect-line" />
 
@@ -178,13 +192,13 @@ export default function HowItWorks() {
             }} className="how-steps-grid">
               
               {/* Step 1 */}
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: C.white, padding: '40px 24px', borderRadius: '24px', boxShadow: '0 12px 30px rgba(10,37,64,0.06)' }}>
                 <div style={{
                   width: '90px',
                   height: '90px',
                   borderRadius: '50%',
                   background: 'rgba(127, 205, 255, 0.1)',
-                  border: '1px solid rgba(127, 205, 255, 0.2)',
+                  border: '1px solid rgba(127, 205, 255, 0.4)',
                   boxShadow: '0 10px 25px rgba(127, 205, 255, 0.05)',
                   display: 'flex',
                   alignItems: 'center',
@@ -213,20 +227,20 @@ export default function HowItWorks() {
                 }}>
                   <Clock size={12} /> Takes 2 minutes
                 </div>
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#F1F5F9', marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Link CRM</h3>
-                <p style={{ fontSize: '0.95rem', color: '#6B9AB8', lineHeight: '1.6', maxWidth: '320px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: C.oceanDeep, marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Link CRM</h3>
+                <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', maxWidth: '320px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                   Connect Pipedrive natively. Voxiq automatically syncs your lists, fields, and owners.
                 </p>
               </div>
 
               {/* Step 2 */}
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: C.white, padding: '40px 24px', borderRadius: '24px', boxShadow: '0 12px 30px rgba(10,37,64,0.06)' }}>
                 <div style={{
                   width: '90px',
                   height: '90px',
                   borderRadius: '50%',
                   background: 'rgba(127, 205, 255, 0.1)',
-                  border: '1px solid rgba(127, 205, 255, 0.2)',
+                  border: '1px solid rgba(127, 205, 255, 0.4)',
                   boxShadow: '0 10px 25px rgba(127, 205, 255, 0.05)',
                   display: 'flex',
                   alignItems: 'center',
@@ -255,20 +269,20 @@ export default function HowItWorks() {
                 }}>
                   <Clock size={12} /> Setup in seconds
                 </div>
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#F1F5F9', marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Select Call List</h3>
-                <p style={{ fontSize: '0.95rem', color: '#6B9AB8', lineHeight: '1.6', maxWidth: '320px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: C.oceanDeep, marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Select Call List</h3>
+                <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', maxWidth: '320px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                   Choose a CRM view or upload a list. Set local-presence rules and dialer preferences with a few toggles.
                 </p>
               </div>
 
               {/* Step 3 */}
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', background: C.white, padding: '40px 24px', borderRadius: '24px', boxShadow: '0 12px 30px rgba(10,37,64,0.06)' }}>
                 <div style={{
                   width: '90px',
                   height: '90px',
                   borderRadius: '50%',
                   background: 'rgba(127, 205, 255, 0.1)',
-                  border: '1px solid rgba(127, 205, 255, 0.2)',
+                  border: '1px solid rgba(127, 205, 255, 0.4)',
                   boxShadow: '0 10px 25px rgba(127, 205, 255, 0.05)',
                   display: 'flex',
                   alignItems: 'center',
@@ -297,8 +311,8 @@ export default function HowItWorks() {
                 }}>
                   <Clock size={12} /> Connects instantly
                 </div>
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#F1F5F9', marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Click Start</h3>
-                <p style={{ fontSize: '0.95rem', color: '#6B9AB8', lineHeight: '1.6', maxWidth: '320px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: C.oceanDeep, marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Click Start</h3>
+                <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', maxWidth: '320px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                   Reps click start to dial. The moment a contact picks up, they hear the rep. Outcomes are synced back automatically.
                 </p>
               </div>
@@ -310,14 +324,14 @@ export default function HowItWorks() {
       </section>
 
       {/* SECTION 3 — DETAILED WALKTHROUGH (TABBED) */}
-      <section style={{ padding: '100px 0', background: '#020D1A', borderTop: '1px solid rgba(127,205,255,0.08)', borderBottom: '1px solid rgba(127,205,255,0.08)' }}>
+      <section style={{ padding: '100px 0', background: C.cream, borderTop: '1px solid rgba(13, 59, 110, 0.05)', borderBottom: '1px solid rgba(13, 59, 110, 0.05)' }}>
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: '#F1F5F9', letterSpacing: '-0.025em', marginBottom: '16px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: C.oceanDeep, letterSpacing: '-0.025em', marginBottom: '16px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Deep dive into the calling workspace
             </h2>
-            <p style={{ fontSize: '1.15rem', color: '#6B9AB8', maxWidth: '600px', margin: '0 auto', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <p style={{ fontSize: '1.15rem', color: C.textMid, maxWidth: '600px', margin: '0 auto', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Interactive timeline showing a full sales cycle from initial dial to auto-log.
             </p>
           </div>
@@ -346,10 +360,10 @@ export default function HowItWorks() {
                     style={{
                       textAlign: 'left',
                       padding: '24px',
-                      background: isActive ? '#111929' : 'transparent',
-                      border: isActive ? '1px solid rgba(127,205,255,0.08)' : '1px solid transparent',
+                      background: isActive ? C.white : 'transparent',
+                      border: isActive ? '1px solid rgba(13, 59, 110, 0.1)' : '1px solid transparent',
                       borderRadius: '16px',
-                      boxShadow: isActive ? '0 10px 30px rgba(0,0,0,0.3)' : 'none',
+                      boxShadow: isActive ? '0 10px 30px rgba(10,37,64,0.06)' : 'none',
                       cursor: 'pointer',
                       transition: 'all 0.2s',
                       outline: 'none',
@@ -363,8 +377,8 @@ export default function HowItWorks() {
                       width: '36px',
                       height: '36px',
                       borderRadius: '50%',
-                      background: isActive ? '#7FCDFF' : 'rgba(127,205,255,0.08)',
-                      color: isActive ? 'white' : '#6B9AB8',
+                      background: isActive ? C.oceanMid : 'rgba(13, 59, 110, 0.05)',
+                      color: isActive ? C.white : C.textMid,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -375,7 +389,7 @@ export default function HowItWorks() {
                       {item.step}
                     </div>
                     <div>
-                      <h4 style={{ margin: '0 0 6px', fontSize: '1.1rem', fontWeight: 600, color: isActive ? '#F1F5F9' : '#6B9AB8' }}>
+                      <h4 style={{ margin: '0 0 6px', fontSize: '1.1rem', fontWeight: 600, color: isActive ? C.oceanDeep : C.textMid }}>
                         {item.title}
                       </h4>
                       <p style={{ margin: 0, fontSize: '0.9rem', color: '#6B9AB8', lineHeight: '1.5' }}>
@@ -408,12 +422,12 @@ export default function HowItWorks() {
                 {/* 1. DIALING MOCKUP */}
                 {activeStep === 'dialing' && (
                   <div className="tab-fade-in">
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', borderBottom: '1px solid #1e2537', paddingBottom: '14px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', borderBottom: '1px solid rgba(13, 59, 110, 0.1)', paddingBottom: '14px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <span className="pulse-dot" style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#F59E0B', display: 'inline-block' }} />
-                        <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#6B9AB8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Dialing Queue</span>
+                        <span style={{ fontSize: '0.75rem', fontWeight: 700, color: C.textMid, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Dialing Queue</span>
                       </div>
-                      <span style={{ fontSize: '0.7rem', color: '#7FCDFF', fontWeight: 600 }}>Line 1 of 3</span>
+                      <span style={{ fontSize: '0.7rem', color: C.oceanMid, fontWeight: 600 }}>Line 1 of 3</span>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -423,8 +437,8 @@ export default function HowItWorks() {
                         { name: 'Sarah Jenkins', company: 'NovaCRM', status: 'Pending' }
                       ].map((lead, idx) => (
                         <div key={idx} style={{
-                          background: idx === 0 ? 'rgba(127, 205, 255, 0.08)' : '#0d1117',
-                          border: idx === 0 ? '1.5px solid rgba(127, 205, 255, 0.3)' : '1px solid #1e2537',
+                          background: idx === 0 ? C.foam : '#F8FAFC',
+                          border: idx === 0 ? '1.5px solid rgba(127, 205, 255, 0.5)' : '1px solid rgba(13, 59, 110, 0.05)',
                           borderRadius: '10px',
                           padding: '12px 14px',
                           display: 'flex',
@@ -432,14 +446,14 @@ export default function HowItWorks() {
                           alignItems: 'center'
                         }}>
                           <div>
-                            <div style={{ fontWeight: 600, fontSize: '0.9rem', color: '#F1F5F9' }}>{lead.name}</div>
-                            <div style={{ fontSize: '0.72rem', color: '#6B9AB8', marginTop: '2px' }}>{lead.company}</div>
+                            <div style={{ fontWeight: 600, fontSize: '0.9rem', color: C.oceanDeep }}>{lead.name}</div>
+                            <div style={{ fontSize: '0.72rem', color: C.textMid, marginTop: '2px' }}>{lead.company}</div>
                           </div>
                           <span style={{
                             fontSize: '0.72rem',
                             fontWeight: 600,
-                            color: idx === 0 ? '#7FCDFF' : '#64748B',
-                            background: idx === 0 ? 'rgba(127, 205, 255, 0.1)' : 'transparent',
+                            color: idx === 0 ? C.oceanMid : '#94A3B8',
+                            background: idx === 0 ? 'rgba(127, 205, 255, 0.3)' : 'transparent',
                             padding: '3px 8px',
                             borderRadius: '4px',
                             border: idx === 0 ? '1px solid rgba(127, 205, 255, 0.2)' : 'none'
@@ -455,7 +469,7 @@ export default function HowItWorks() {
                 {/* 2. CONNECTED MOCKUP */}
                 {activeStep === 'connected' && (
                   <div className="tab-fade-in">
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', borderBottom: '1px solid #1e2537', paddingBottom: '14px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', borderBottom: '1px solid rgba(13, 59, 110, 0.1)', paddingBottom: '14px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <span className="pulse-dot" style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', display: 'inline-block' }} />
                         <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#6B9AB8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Line Connected</span>
@@ -464,16 +478,16 @@ export default function HowItWorks() {
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-                      <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(127, 205, 255, 0.1)', border: '1px solid rgba(127, 205, 255, 0.2)', color: '#7FCDFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '1.25rem' }}>RC</div>
+                      <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(127, 205, 255, 0.1)', border: '1px solid rgba(127, 205, 255, 0.4)', color: '#7FCDFF', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '1.25rem' }}>RC</div>
                       <div>
-                        <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 600, color: '#F1F5F9' }}>Robert Carter</h4>
+                        <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 600, color: C.oceanDeep }}>Robert Carter</h4>
                         <p style={{ margin: '2px 0 0', fontSize: '0.8rem', color: '#6B9AB8' }}>CEO at Acme Corp</p>
                       </div>
                     </div>
 
                     {/* Animated audio waves */}
-                    <div style={{ background: '#020D1A', border: '1px solid #1e2537', borderRadius: '12px', padding: '16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontSize: '1.25rem', fontWeight: 700, color: '#F1F5F9', fontFamily: 'monospace' }}>0:42</span>
+                    <div style={{ background: '#F8FAFC', border: '1px solid rgba(13, 59, 110, 0.1)', borderRadius: '12px', padding: '16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ fontSize: '1.25rem', fontWeight: 700, color: C.oceanDeep, fontFamily: 'monospace' }}>0:42</span>
                       <div style={{ display: 'flex', gap: '4px', height: '20px', alignItems: 'center' }}>
                         {[1, 2, 3, 2, 4, 3, 5, 2, 4, 3, 5, 2, 1, 3, 4, 2, 1].map((h, i) => (
                           <div
@@ -494,7 +508,7 @@ export default function HowItWorks() {
                 {/* 3. DISPOSITION MOCKUP */}
                 {activeStep === 'disposition' && (
                   <div className="tab-fade-in">
-                    <h4 style={{ margin: '0 0 16px', fontSize: '1rem', fontWeight: 600, color: '#F1F5F9', borderBottom: '1px solid #1e2537', paddingBottom: '12px' }}>Call outcome</h4>
+                    <h4 style={{ margin: '0 0 16px', fontSize: '1rem', fontWeight: 600, color: C.oceanDeep, borderBottom: '1px solid rgba(13, 59, 110, 0.1)', paddingBottom: '12px' }}>Call outcome</h4>
                     
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '20px' }}>
                       {[
@@ -508,9 +522,9 @@ export default function HowItWorks() {
                         <div key={idx} style={{
                           padding: '12px',
                           borderRadius: '8px',
-                          border: item.active ? '1.5px solid rgba(127, 205, 255, 0.4)' : '1px solid #1e2537',
-                          background: item.active ? '#13203a' : '#0d1117',
-                          color: item.active ? '#F1F5F9' : '#64748B',
+                          border: item.active ? '1.5px solid rgba(127, 205, 255, 0.6)' : '1px solid rgba(13, 59, 110, 0.1)',
+                          background: item.active ? C.foam : '#F8FAFC',
+                          color: item.active ? C.oceanDeep : C.textMid,
                           fontSize: '0.82rem',
                           fontWeight: 600,
                           textAlign: 'center',
@@ -528,10 +542,10 @@ export default function HowItWorks() {
                       value="Requested pricing deck. Booked callback for Monday at 10am."
                       style={{
                         width: '100%',
-                        background: '#020D1A',
-                        border: '1px solid #1e2537',
+                        background: '#F8FAFC',
+                        border: '1px solid rgba(13, 59, 110, 0.1)',
                         borderRadius: '6px',
-                        color: '#CBD5E1',
+                        color: C.textMid,
                         padding: '10px',
                         fontSize: '0.8rem',
                         resize: 'none',
@@ -545,19 +559,19 @@ export default function HowItWorks() {
                 {/* 4. CRM LOG MOCKUP */}
                 {activeStep === 'crm_log' && (
                   <div className="tab-fade-in">
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', borderBottom: '1px solid #1e2537', paddingBottom: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', borderBottom: '1px solid rgba(13, 59, 110, 0.1)', paddingBottom: '12px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <div style={{ width: '24px', height: '24px', borderRadius: '4px', background: '#7FCDFF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '0.7rem', fontWeight: 900 }}>C</div>
-                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#F1F5F9' }}>CRM Integration</span>
+                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: C.oceanDeep }}>CRM Integration</span>
                       </div>
                       <span style={{ fontSize: '0.72rem', color: '#10B981', background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)', padding: '3px 8px', borderRadius: '4px', fontWeight: 700 }}>✓ SYNCED</span>
                     </div>
 
                     <div style={{ borderLeft: '2px solid #7FCDFF', paddingLeft: '14px', marginLeft: '6px' }}>
-                      <div style={{ fontWeight: 600, fontSize: '0.85rem', color: '#F1F5F9', marginBottom: '4px' }}>Call with Robert Carter Logged</div>
+                      <div style={{ fontWeight: 600, fontSize: '0.85rem', color: C.oceanDeep, marginBottom: '4px' }}>Call with Robert Carter Logged</div>
                       <div style={{ fontSize: '0.72rem', color: '#6B9AB8', marginBottom: '12px' }}>Duration: 0:42 ➜ Status: Interested</div>
                       
-                      <div style={{ background: '#020D1A', border: '1px solid #1e2537', borderRadius: '8px', padding: '12px', fontSize: '0.75rem', color: '#CBD5E1', lineHeight: '1.5' }}>
+                      <div style={{ background: '#F8FAFC', border: '1px solid rgba(13, 59, 110, 0.1)', borderRadius: '8px', padding: '12px', fontSize: '0.75rem', color: C.textMid, lineHeight: '1.5' }}>
                         <strong>Outcome:</strong> Interested — Callback Scheduled<br />
                         <strong>Notes:</strong> Requested pricing deck. Booked callback for Monday at 10am.<br />
                         <strong>Recording:</strong> <span style={{ color: '#7FCDFF', textDecoration: 'underline', cursor: 'pointer' }}>recording_8472.mp3</span>
@@ -573,7 +587,7 @@ export default function HowItWorks() {
                       Disposition Saved successfully
                     </div>
 
-                    <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#F1F5F9', marginBottom: '24px' }}>
+                    <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: C.oceanDeep, marginBottom: '24px' }}>
                       Next call starting in <span style={{ color: '#7FCDFF', fontSize: '1.75rem', fontWeight: 700 }}>{countdown}</span>...
                     </h3>
 
@@ -581,7 +595,7 @@ export default function HowItWorks() {
                     <div style={{
                       width: '100%',
                       height: '6px',
-                      background: '#1e2537',
+                      background: 'rgba(13, 59, 110, 0.1)',
                       borderRadius: '3px',
                       overflow: 'hidden',
                       marginBottom: '32px'
@@ -595,7 +609,7 @@ export default function HowItWorks() {
                     </div>
 
                     <div style={{ display: 'flex', gap: '10px' }}>
-                      <button style={{ flex: 1, padding: '12px', background: 'rgba(127, 205, 255, 0.1)', border: '1px solid rgba(127, 205, 255, 0.2)', borderRadius: '8px', color: '#7FCDFF', fontWeight: 600, fontSize: '0.82rem', cursor: 'pointer' }}>Pause Dialer</button>
+                      <button style={{ flex: 1, padding: '12px', background: 'rgba(127, 205, 255, 0.1)', border: '1px solid rgba(127, 205, 255, 0.4)', borderRadius: '8px', color: '#7FCDFF', fontWeight: 600, fontSize: '0.82rem', cursor: 'pointer' }}>Pause Dialer</button>
                       <button style={{ flex: 1.2, padding: '12px', background: '#7FCDFF', border: 'none', borderRadius: '8px', color: 'white', fontWeight: 600, fontSize: '0.82rem', cursor: 'pointer' }}>Dial Now →</button>
                     </div>
                   </div>
@@ -609,22 +623,22 @@ export default function HowItWorks() {
       </section>
 
       {/* SECTION 4 — SETUP TIMELINE (0:00 TO 10:00) */}
-      <section style={{ padding: '100px 0', background: '#020D1A' }}>
+      <section style={{ padding: '100px 0', background: C.foam }}>
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           
           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
             <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: '#F1F5F9', letterSpacing: '-0.025em', marginBottom: '16px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               From setup to dialing in 10 minutes
             </h2>
-            <p style={{ fontSize: '1.15rem', color: '#6B9AB8', maxWidth: '600px', margin: '0 auto', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <p style={{ fontSize: '1.15rem', color: C.textMid, maxWidth: '600px', margin: '0 auto', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Setting up Voxiq is fully self-serve. Follow our chronological setup milestones.
             </p>
           </div>
 
           {/* Horizontal timeline bar */}
           <div style={{
-            background: '#020D1A',
-            border: '1px solid #1e2537',
+            background: C.white,
+            border: '1px solid rgba(13, 59, 110, 0.1)',
             borderRadius: '24px',
             padding: '50px 30px',
             position: 'relative'
@@ -664,7 +678,7 @@ export default function HowItWorks() {
                     padding: '4px 10px',
                     borderRadius: '6px',
                     marginBottom: '14px',
-                    border: '1px solid rgba(127, 205, 255, 0.2)',
+                    border: '1px solid rgba(127, 205, 255, 0.4)',
                     fontFamily: "'Plus Jakarta Sans', sans-serif"
                   }}>
                     {item.time}
@@ -674,13 +688,13 @@ export default function HowItWorks() {
                     width: '18px',
                     height: '18px',
                     borderRadius: '50%',
-                    background: idx === 4 ? '#7FCDFF' : '#0B0F1A',
+                    background: idx === 4 ? C.breeze : C.white,
                     border: '3px solid #7FCDFF',
                     marginBottom: '16px',
-                    boxShadow: '0 0 0 4px #0d1117'
+                    boxShadow: '0 0 0 4px #FFFFFF'
                   }} />
 
-                  <h4 style={{ margin: '0 0 8px', fontSize: '1rem', fontWeight: 600, color: '#F1F5F9', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <h4 style={{ margin: '0 0 8px', fontSize: '1rem', fontWeight: 600, color: C.oceanDeep, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     {item.title}
                   </h4>
                   <p style={{ margin: 0, fontSize: '0.82rem', color: '#6B9AB8', lineHeight: '1.4', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -696,7 +710,7 @@ export default function HowItWorks() {
       </section>
 
       {/* SECTION 5 — OBJECTION BUSTERS */}
-      <section style={{ padding: '100px 0', background: '#020D1A', borderTop: '1px solid #E5E7EB', borderBottom: '1px solid #E5E7EB' }}>
+      <section style={{ padding: '100px 0', background: C.white, borderTop: '1px solid rgba(13, 59, 110, 0.05)', borderBottom: '1px solid rgba(13, 59, 110, 0.05)' }}>
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
@@ -716,8 +730,8 @@ export default function HowItWorks() {
             
             {/* Card 1 */}
             <div style={{
-              background: '#020D1A',
-              border: '1px solid rgba(127,205,255,0.08)',
+              background: C.foam,
+              border: '1px solid rgba(13, 59, 110, 0.05)',
               borderRadius: '20px',
               padding: '32px',
               boxShadow: '0 10px 30px rgba(127, 205, 255, 0.05)',
@@ -741,17 +755,17 @@ export default function HowItWorks() {
               }}>
                 <Database size={20} />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#F1F5F9', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>CRM Compatibility</h3>
-              <p style={{ fontSize: '0.9rem', color: '#6B9AB8', lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                <strong style={{ color: '#F1F5F9' }}>Will it mess up our CRM data?</strong><br /><br />
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: C.oceanDeep, margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>CRM Compatibility</h3>
+              <p style={{ fontSize: '0.9rem', color: C.textMid, lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <strong style={{ color: C.oceanDeep }}>Will it mess up our CRM data?</strong><br /><br />
                 Absolutely not. Voxiq uses standard, official API connections to write call actions and task records. We log calls natively without overriding any lead ownership or field properties.
               </p>
             </div>
 
             {/* Card 2 */}
             <div style={{
-              background: '#020D1A',
-              border: '1px solid rgba(127,205,255,0.08)',
+              background: C.foam,
+              border: '1px solid rgba(13, 59, 110, 0.05)',
               borderRadius: '20px',
               padding: '32px',
               boxShadow: '0 10px 30px rgba(127, 205, 255, 0.05)',
@@ -775,17 +789,17 @@ export default function HowItWorks() {
               }}>
                 <Settings size={20} />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#F1F5F9', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>IT & Security Dependency</h3>
-              <p style={{ fontSize: '0.9rem', color: '#6B9AB8', lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                <strong style={{ color: '#F1F5F9' }}>Do we need IT support or engineers?</strong><br /><br />
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: C.oceanDeep, margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>IT & Security Dependency</h3>
+              <p style={{ fontSize: '0.9rem', color: C.textMid, lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <strong style={{ color: C.oceanDeep }}>Do we need IT support or engineers?</strong><br /><br />
                 Zero developer time needed. Voxiq connects instantly in browser. Reps dial directly through their Chrome workspace using WebRTC, bypass softphone downloads, and auto-sync outcomes.
               </p>
             </div>
 
             {/* Card 3 */}
             <div style={{
-              background: '#020D1A',
-              border: '1px solid rgba(127,205,255,0.08)',
+              background: C.foam,
+              border: '1px solid rgba(13, 59, 110, 0.05)',
               borderRadius: '20px',
               padding: '32px',
               boxShadow: '0 10px 30px rgba(127, 205, 255, 0.05)',
@@ -809,9 +823,9 @@ export default function HowItWorks() {
               }}>
                 <Headphones size={20} />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#F1F5F9', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Onboarding Curve</h3>
-              <p style={{ fontSize: '0.9rem', color: '#6B9AB8', lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                <strong style={{ color: '#F1F5F9' }}>How long does it take reps to learn?</strong><br /><br />
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: C.oceanDeep, margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Onboarding Curve</h3>
+              <p style={{ fontSize: '0.9rem', color: C.textMid, lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <strong style={{ color: C.oceanDeep }}>How long does it take reps to learn?</strong><br /><br />
                 Less than 15 minutes. The interface is optimized exclusively for phone activities. Your agents only see what they need to: lead cards, dial controls, script notes, and disposition options.
               </p>
             </div>
@@ -822,7 +836,7 @@ export default function HowItWorks() {
       </section>
 
       {/* SECTION 6 — BOTTOM CTA */}
-      <section style={{ padding: '100px 0', background: '#020D1A' }}>
+      <section style={{ padding: '100px 0', background: `linear-gradient(135deg, ${C.oceanDeep} 0%, ${C.oceanMid} 50%, ${C.oceanDeep} 100%)` }}>
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           <div style={{
             background: '#111929',
@@ -919,7 +933,7 @@ export default function HowItWorks() {
                 style={{
                   background: 'transparent',
                   color: '#94A3B8',
-                  border: '1.5px solid #1e2537',
+                  border: '1px solid rgba(127,205,255,0.3)',
                   padding: '20px 48px',
                   borderRadius: '12px',
                   fontWeight: 600,

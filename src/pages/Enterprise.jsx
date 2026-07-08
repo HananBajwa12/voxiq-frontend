@@ -1,15 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import { 
-  Check, 
-  ArrowRight, 
-  Zap, 
-  Phone, 
+import {
+  Check,
+  ArrowRight,
+  Zap,
+  Phone,
   X,
+  Target,
   Users,
-  Building,
-  DollarSign
+  TrendingUp,
+  ShieldCheck
 } from 'lucide-react';
 
 /* ─────────────────────────────────────────
@@ -29,7 +30,6 @@ const C = {
   textMid: '#2D5986',
   textMuted: '#6B9AB8',
   liveGreen: '#00E5A0',
-  purple: '#7C6DFA',
   warn: '#F59E0B',
   danger: '#EF4444',
 };
@@ -90,7 +90,7 @@ function FadeInSection({ children }) {
   );
 }
 
-export default function GHLAgencies() {
+export default function Enterprise() {
   const navigate = useNavigate();
 
   return (
@@ -98,16 +98,16 @@ export default function GHLAgencies() {
       <InjectCardHoverStyles />
 
       {/* 1. HERO SECTION */}
-      <section style={{ 
-        padding: '120px 0 80px', 
+      <section style={{
+        padding: '120px 0 80px',
         position: 'relative',
         overflow: 'hidden',
         background: '#020D1A'
       }}>
         {/* Background Image */}
-        <img 
-          src="/Integration for GHL..png" 
-          alt="Background" 
+        <img
+          src="/Enterprise.png"
+          alt="Background"
           style={{
             position: 'absolute',
             width: '100%',
@@ -122,12 +122,12 @@ export default function GHLAgencies() {
         />
 
         {/* Gradient Overlay */}
-        <div style={{ 
-          position: 'absolute', 
-          inset: 0, 
-          background: 'linear-gradient(rgba(2, 13, 26, 0.4), rgba(2, 13, 26, 0.4)), radial-gradient(ellipse 70% 60% at 60% 50%, rgba(127,205,255,0.06), transparent 70%)', 
-          zIndex: 2, 
-          pointerEvents: 'none' 
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(rgba(2, 13, 26, 0.55), rgba(2, 13, 26, 0.55)), radial-gradient(ellipse 70% 60% at 60% 50%, rgba(127,205,255,0.1), transparent 70%)',
+          zIndex: 2,
+          pointerEvents: 'none'
         }} />
 
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 10 }}>
@@ -152,13 +152,13 @@ export default function GHLAgencies() {
                   width: '6px',
                   height: '6px',
                   borderRadius: '50%',
-                  background: 'rgb(223, 247, 255)',
+                  background: '#7FCDFF',
                   display: 'inline-block',
                   animation: 'pulse-dot 1.5s infinite'
                 }}></span>
-                GHL Agencies
+                Enterprise
               </span>
-              
+
               <h1 style={{
                 fontSize: 'clamp(2.5rem, 4.5vw, 3.75rem)',
                 fontWeight: 700,
@@ -167,72 +167,68 @@ export default function GHLAgencies() {
                 marginBottom: '24px',
                 lineHeight: '1.15'
               }}>
-                Add a premium dialer to your GHL agency stack. White-label ready.
+                Calling infrastructure that scales to thousands of reps.
               </h1>
-              
+
               <p style={{
                 fontSize: '1.15rem',
                 color: '#CBD5E1',
                 lineHeight: '1.7',
-                marginBottom: '20px',
+                marginBottom: '40px',
                 maxWidth: '560px'
               }}>
-                Built natively for GoHighLevel. Resell Voxiq to your GHL clients under your own brand — with 2-way sync, workflow triggers, and pipeline automation that your clients will love.
+                Voxiq gives enterprise sales and support organizations the reliability, security, and admin controls to run calling at scale — across every team and region.
               </p>
 
-              {/* Special Note Card */}
-              <div style={{
-                background: 'rgba(127, 205, 255, 0.08)',
-                border: '1px solid rgba(127, 205, 255, 0.2)',
-                borderRadius: '8px',
-                padding: '12px 16px',
-                marginBottom: '32px',
-                fontSize: '13px',
-                color: '#CBD5E1',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                maxWidth: '560px'
-              }}>
-                <span style={{ color: '#7FCDFF', fontWeight: 'bold' }}>✦</span> Voxiq is the only dialer with true native GHL integration — not a Zapier workaround.
-              </div>
               <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                 <Link
                   to="/signup"
                   style={{
                     textDecoration: 'none',
-                    background: 'rgb(223, 247, 255)', color: '#0A2540',
+                    background: '#7FCDFF',
+                    color: '#0A2540',
                     padding: '16px 36px',
                     borderRadius: '10px',
-                    fontWeight: 700,
+                    fontWeight: 600,
                     fontSize: '1rem',
                     boxShadow: '0 8px 24px rgba(127, 205, 255, 0.25)',
                     transition: 'all 0.2s',
-                    fontFamily: "'Plus Jakarta Sans', sans-serif"
+                    border: '1px solid rgba(255, 255, 255, 0.1)'
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#5BB8F5';
+                    e.currentTarget.style.boxShadow = '0 12px 28px rgba(127, 205, 255, 0.4)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#7FCDFF';
+                    e.currentTarget.style.boxShadow = '0 8px 24px rgba(127, 205, 255, 0.25)';
+                  }}
                 >
-                  Start Free Trial
+                  Talk to Sales
                 </Link>
                 <a
                   href="#how-it-works"
                   style={{
                     textDecoration: 'none',
                     background: 'transparent',
-                    color: '#FFFFFF',
-                    border: '1px solid rgba(255, 255, 255, 0.25)',
+                    color: '#94A3B8',
+                    border: '1px solid #1e2537',
                     padding: '16px 36px',
                     borderRadius: '10px',
-                    fontWeight: 700,
+                    fontWeight: 600,
                     fontSize: '1rem',
-                    transition: 'all 0.2s',
-                    fontFamily: "'Plus Jakarta Sans', sans-serif"
+                    transition: 'all 0.2s'
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'; e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'; e.currentTarget.style.background = 'transparent'; }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#2e3a4f';
+                    e.currentTarget.style.color = '#F1F5F9';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#1e2537';
+                    e.currentTarget.style.color = '#94A3B8';
+                  }}
                 >
-                  Watch Demo
+                  See How It Works
                 </a>
               </div>
             </div>
@@ -246,13 +242,18 @@ export default function GHLAgencies() {
               padding: '24px'
             }} className="hero-mockup-container">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid #1e2537', paddingBottom: '12px' }}>
-                <span style={{ fontSize: '13px', fontWeight: 600, color: '#6B9AB8' }}>GoHighLevel Integration Link</span>
-                <span style={{ background: 'rgba(16, 185, 129, 0.1)', color: '#10B981', padding: '3px 8px', borderRadius: '4px', fontSize: '11px', fontWeight: 600 }}>Synced</span>
+                <span style={{ fontSize: '13px', fontWeight: 600, color: '#6B9AB8' }}>Global Deployment Status</span>
+                <span style={{ background: 'rgba(16, 185, 129, 0.1)', color: '#10B981', padding: '3px 8px', borderRadius: '4px', fontSize: '11px', fontWeight: 600 }}>Operational</span>
               </div>
-              <div style={{ background: '#020D1A', border: '1px solid #1e2537', borderRadius: '8px', padding: '16px' }}>
-                <div style={{ fontSize: '11px', color: '#6B9AB8', textTransform: 'uppercase', marginBottom: '6px' }}>Active Workspace</div>
-                <div style={{ fontSize: '15px', fontWeight: 700, color: '#F1F5F9' }}>Agency White-Label: Active</div>
-                <div style={{ fontSize: '13px', color: '#7FCDFF', marginTop: '4px' }}>Custom Domain: dialer.myagency.com</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', background: '#020D1A', border: '1px solid #1e2537', borderRadius: '6px', fontSize: '13px' }}>
+                  <span>Active seats</span>
+                  <span style={{ color: '#7FCDFF', fontWeight: 600 }}>4,200+</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', background: '#020D1A', border: '1px solid #1e2537', borderRadius: '6px', fontSize: '13px' }}>
+                  <span>Uptime (90 days)</span>
+                  <span style={{ color: '#10B981', fontWeight: 600 }}>99.98%</span>
+                </div>
               </div>
             </div>
           </div>
@@ -264,9 +265,9 @@ export default function GHLAgencies() {
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px', textAlign: 'center' }} className="stats-row">
             {[
-              { val: 'Native', desc: 'GHL 2-way sync — not Zapier' },
-              { val: 'White-label', desc: 'Your brand, your pricing' },
-              { val: '2-way', desc: 'Contacts, pipelines & workflows' }
+              { val: '99.9%', desc: 'Uptime SLA' },
+              { val: 'SOC 2', desc: 'Type II compliant' },
+              { val: 'Unlimited', desc: 'Seats and concurrent calls' }
             ].map((st, i) => (
               <div key={i}>
                 <h3 style={{ fontSize: '2.5rem', fontWeight: 700, color: C.textDark, margin: '0 0 6px 0', letterSpacing: '-0.03em' }}>{st.val}</h3>
@@ -282,22 +283,22 @@ export default function GHLAgencies() {
         <section style={{ padding: '80px 0', background: C.oceanMid }}>
           <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <h2 style={{ fontSize: '2.25rem', fontWeight: 700, color: C.breezeLight, letterSpacing: '-0.02em' }}>The problems GHL agencies face</h2>
+              <h2 style={{ fontSize: '2.25rem', fontWeight: 700, color: C.breezeLight, letterSpacing: '-0.02em' }}>What's holding back calling at scale?</h2>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }} className="benefits-grid">
               {[
                 {
-                  title: 'Your clients need a dialer but Zapier-based solutions are flaky',
-                  desc: 'Most \'GHL integrations\' are just Zapier workflows that break. Your clients lose data, miss follow-ups, and blame your agency.'
+                  title: 'Legacy phone systems can\'t scale with a growing org',
+                  desc: 'On-prem PBX infrastructure buckles under thousands of concurrent calls across regions and time zones.'
                 },
                 {
-                  title: 'You\'re leaving revenue on the table with every GHL client',
-                  desc: 'Every GHL client you have needs outbound calling. Without a white-label dialer, that revenue goes to a competitor.'
+                  title: 'IT needs enterprise-grade security, not consumer tools',
+                  desc: 'Without SOC 2 compliance, SSO, and granular admin controls, procurement and security review stalls every rollout.'
                 },
                 {
-                  title: 'Managing dialer tools separately from GHL is a nightmare',
-                  desc: 'Switching between 3 tools to manage contacts, calls, and follow-up loses context and wastes client time.'
+                  title: 'Fragmented tools create data silos across departments',
+                  desc: 'Sales, support, and collections all run different calling tools — leaving leadership with no unified view of activity.'
                 }
               ].map((p, idx) => (
                 <div key={idx} style={{
@@ -332,16 +333,16 @@ export default function GHLAgencies() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }} className="benefits-grid">
               {[
                 {
-                  title: 'True Native GHL Integration',
-                  desc: 'Voxiq connects directly to GHL\'s API — not through Zapier. 2-way contact sync, workflow triggers, and pipeline updates work reliably, every time.'
+                  title: 'Enterprise-Grade Reliability',
+                  desc: 'A 99.9% uptime SLA and globally distributed infrastructure keep thousands of reps dialing without interruption.'
                 },
                 {
-                  title: 'White-Label Ready',
-                  desc: 'Rebrand Voxiq with your agency name and logo. Your clients see your brand — you capture the recurring revenue.'
+                  title: 'SOC 2 Compliant Security',
+                  desc: 'SSO, role-based access control, and audit logging satisfy even the strictest security review.'
                 },
                 {
-                  title: 'Client Sub-Accounts',
-                  desc: 'Manage all your GHL clients from one Voxiq agency dashboard. Separate workspaces, separate billing, full visibility.'
+                  title: 'Centralized Admin Controls',
+                  desc: 'Manage every department, region, and sub-account from one dashboard with full visibility and governance.'
                 }
               ].map((s, idx) => (
                 <div key={idx} className="ib-card-hover" style={{
@@ -374,19 +375,18 @@ export default function GHLAgencies() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }} className="feature-row">
                 <div>
                   <h2 style={{ fontSize: '2.25rem', fontWeight: 700, color: C.breezeLight, marginBottom: '20px', lineHeight: '1.2', letterSpacing: '-0.02em' }}>
-                    Everything your GHL clients need — in one place
+                    Security and compliance built for procurement
                   </h2>
                   <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.7', marginBottom: '24px' }}>
-                    Inbound calls, outbound power dialing, SMS, WhatsApp, AI Agent Caller, and analytics — all natively synced with GHL. Every call outcome updates the GHL contact. Every workflow trigger fires correctly. No data loss. No missed follow-ups.
+                    Pass security review the first time. Voxiq is SOC 2 Type II compliant with SSO, granular role-based permissions, and full audit logs — everything your security team needs to sign off.
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {[
-                      '2-way contact sync with GHL',
-                      'Call outcomes trigger GHL workflows',
-                      'Pipeline stage updates after calls',
-                      'SMS & WhatsApp logs in GHL timeline',
-                      'AI Agent integrates with GHL automations',
-                      'Appointment booking to GHL calendar'
+                      'SOC 2 Type II compliant',
+                      'SSO / SAML support',
+                      'Role-based access control',
+                      'Full audit logging',
+                      'Dedicated enterprise support SLA'
                     ].map((item, idx) => (
                       <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <Check size={16} color={C.liveGreen} style={{ flexShrink: 0 }} />
@@ -403,14 +403,18 @@ export default function GHLAgencies() {
                   padding: '24px',
                   boxShadow: '0 24px 48px rgba(0,0,0,.3)'
                 }}>
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: C.breeze, marginBottom: '12px' }}>GHL Native Workflow Action</div>
-                  <div style={{ background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', borderRadius: '10px', padding: '12px', marginBottom: '12px' }}>
-                    <div style={{ fontSize: '11px', color: 'rgba(127,205,255,.65)' }}>Action Trigger</div>
-                    <div style={{ fontSize: '14px', fontWeight: 700, color: C.breezeLight, marginTop: '2px' }}>Voxiq: Trigger AI Outbound Call</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px', color: C.breeze, fontSize: '13px', fontWeight: 600 }}>
+                    <ShieldCheck size={16} /> Security & Compliance Center
                   </div>
-                  <div style={{ background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', borderRadius: '10px', padding: '12px' }}>
-                    <div style={{ fontSize: '11px', color: 'rgba(127,205,255,.65)' }}>Update Pipeline Stage</div>
-                    <div style={{ fontSize: '14px', fontWeight: 700, color: C.breezeLight, marginTop: '2px' }}>Move to: Dialed - No Answer</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', borderRadius: '6px', fontSize: '13px', color: C.breezeLight }}>
+                      <span>SOC 2 Type II</span>
+                      <span style={{ color: C.liveGreen, fontWeight: 600 }}>Certified</span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', borderRadius: '6px', fontSize: '13px', color: C.breezeLight }}>
+                      <span>SSO status</span>
+                      <span style={{ color: C.breeze, fontWeight: 600 }}>Connected</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -426,39 +430,33 @@ export default function GHLAgencies() {
                   boxShadow: '0 24px 48px rgba(0,0,0,.3)',
                   order: 0
                 }} className="deep-dive-order-override">
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                    <span style={{ fontSize: '13px', fontWeight: 600, color: C.breezeLight }}>Agency Margin Calculator</span>
-                    <span style={{ color: C.liveGreen, fontSize: '12px', fontWeight: 600 }}>Active</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px', color: C.breeze, fontSize: '13px', fontWeight: 600 }}>
+                    <Users size={16} /> Org-Wide Admin Console
                   </div>
-                  <div style={{ background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', borderRadius: '10px', padding: '14px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', marginBottom: '8px' }}>
-                      <span style={{ color: 'rgba(127,205,255,.65)' }}>Wholesale Price / seat</span>
-                      <span style={{ color: C.breezeLight }}>$49/mo</span>
+                  <div style={{ background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', borderRadius: '10px', padding: '16px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                      <span style={{ fontSize: '12px', fontWeight: 600, color: C.breezeLight }}>Departments managed</span>
+                      <span style={{ fontSize: '11px', color: C.breeze, background: 'rgba(127,205,255,.1)', padding: '2px 6px', borderRadius: '4px' }}>12 regions</span>
                     </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', marginBottom: '8px' }}>
-                      <span style={{ color: 'rgba(127,205,255,.65)' }}>Your Resale Price / seat</span>
-                      <span style={{ color: C.breeze, fontWeight: 600 }}>$149/mo</span>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', borderTop: '1px solid rgba(127,205,255,.08)', paddingTop: '8px', fontWeight: 700 }}>
-                      <span style={{ color: 'rgba(127,205,255,.65)' }}>Predictable Agency MRR</span>
-                      <span style={{ color: C.liveGreen }}>+$5,000/mo</span>
+                    <div style={{ fontSize: '12px', color: 'rgba(127,205,255,.65)', lineHeight: '1.4' }}>
+                      Sales, Support, and Collections — one dashboard, unified reporting.
                     </div>
                   </div>
                 </div>
                 <div>
                   <h2 style={{ fontSize: '2.25rem', fontWeight: 700, color: C.breezeLight, marginBottom: '20px', lineHeight: '1.2', letterSpacing: '-0.02em' }}>
-                    Build a recurring revenue stream for your agency
+                    One dashboard for every team, department, and region
                   </h2>
                   <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.7', marginBottom: '24px' }}>
-                    Add Voxiq to your agency\'s SaaS stack. White-label it under your brand. Charge your clients $X/month per seat and pay Voxiq wholesale pricing. Most agencies charge $97-197/seat and keep the margin. With 10 clients each running 5 seats, that\'s a predictable $5,000-10,000 MRR from one tool.
+                    Manage sub-accounts for every department and region from a single admin console. Standardize configuration, enforce compliance rules, and report on activity org-wide.
                   </p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {[
-                      'Wholesale agency pricing',
-                      'Your brand, your pricing',
-                      'One dashboard for all clients',
-                      'Priority agency support',
-                      'Co-marketing opportunities'
+                      'Multi-department sub-accounts',
+                      'Org-wide reporting and analytics',
+                      'Centralized number and compliance management',
+                      'Custom roles and permission tiers',
+                      'Dedicated customer success manager'
                     ].map((item, idx) => (
                       <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <Check size={16} color={C.liveGreen} style={{ flexShrink: 0 }} />
@@ -466,85 +464,9 @@ export default function GHLAgencies() {
                       </div>
                     ))}
                   </div>
-                  <Link to="/signup" style={{
-                    display: 'inline-block',
-                    background: 'rgba(127,205,255,.1)',
-                    border: '1px solid rgba(127,205,255,.25)',
-                    color: C.breeze,
-                    padding: '12px 24px',
-                    borderRadius: '8px',
-                    textDecoration: 'none',
-                    fontWeight: 600,
-                    fontSize: '14px',
-                    transition: 'all 0.15s'
-                  }}
-                  onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(127,205,255,.2)'}
-                  onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(127,205,255,.1)'}
-                  >
-                    Apply for Agency Program →
-                  </Link>
                 </div>
               </div>
 
-            </div>
-          </div>
-        </section>
-      </FadeInSection>
-
-      {/* SPECIAL AGENCY PRICING TEASER SECTION */}
-      <FadeInSection>
-        <section style={{ padding: '80px 0', background: C.foam }}>
-          <div className="container" style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem' }}>
-            <div className="ib-card-hover" style={{
-              background: C.white,
-              border: '1px solid rgba(10,37,64,.08)',
-              borderRadius: '20px',
-              padding: '40px',
-              boxShadow: '0 15px 35px rgba(10,37,64,.06)'
-            }}>
-              <h3 style={{ fontSize: '1.75rem', fontWeight: 700, color: C.textDark, marginBottom: '24px', textAlign: 'center' }}>
-                Agency pricing that scales with you
-              </h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {[
-                  { tier: 'Starter Agency', cap: 'Up to 5 client accounts' },
-                  { tier: 'Growth Agency', cap: 'Up to 25 client accounts' },
-                  { tier: 'Enterprise Agency', cap: 'Unlimited client accounts' }
-                ].map((row, idx) => (
-                  <div key={idx} style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    background: C.breezeLight,
-                    border: '1px solid rgba(127,205,255,.3)',
-                    padding: '16px 24px',
-                    borderRadius: '8px'
-                  }} className="agency-tier-row">
-                    <div>
-                      <div style={{ fontSize: '16px', fontWeight: 700, color: C.textDark }}>{row.tier}</div>
-                      <div style={{ fontSize: '13px', color: C.textMid, marginTop: '2px' }}>{row.cap}</div>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                      <span style={{ fontSize: '14px', color: C.textMid }}>Contact us for pricing</span>
-                      <button
-                        onClick={() => navigate('/signup')}
-                        style={{
-                          background: `linear-gradient(135deg, ${C.breeze}, #5BB8F5)`,
-                          border: 'none',
-                          color: C.midnight,
-                          padding: '10px 20px',
-                          borderRadius: '6px',
-                          fontWeight: 600,
-                          fontSize: '13px',
-                          cursor: 'pointer'
-                        }}
-                      >
-                        Contact us
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
@@ -582,10 +504,10 @@ export default function GHLAgencies() {
                 position: 'relative',
                 zIndex: 1
               }}>
-                "We added Voxiq to our GHL agency package 3 months ago. We now have 18 clients using it at $147/seat. It's become our highest-margin product and the feature our clients ask about most."
+                "We rolled out Voxiq to 4,200 seats across 12 regions without a single security exception. The SOC 2 report and SSO support got us through procurement in record time."
               </p>
-              <div style={{ fontWeight: 600, color: C.textDark, fontSize: '15px' }}>Agency Owner</div>
-              <div style={{ color: C.textMid, fontSize: '13px', marginTop: '4px' }}>GHL Certified Partner</div>
+              <div style={{ fontWeight: 600, color: C.textDark, fontSize: '15px' }}>VP of Revenue Operations</div>
+              <div style={{ color: C.textMid, fontSize: '13px', marginTop: '4px' }}>Global Enterprise</div>
 
               <div style={{
                 display: 'inline-flex',
@@ -600,12 +522,29 @@ export default function GHLAgencies() {
                 borderRadius: '20px',
                 marginTop: '24px'
               }}>
-                ✓ Highest-margin SaaS product
+                ✓ 4,200 seats deployed across 12 regions
               </div>
             </div>
           </div>
         </section>
       </FadeInSection>
+
+      {/* 7. INTEGRATIONS */}
+      <section style={{ padding: '80px 0', background: C.foam }}>
+        <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', textAlign: 'center' }}>
+          <h4 style={{ fontSize: '11px', fontWeight: 700, color: C.textMuted, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '32px' }}>
+            Natively connects with your tech stack
+          </h4>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '40px', flexWrap: 'wrap', marginBottom: '32px', opacity: 0.85 }}>
+            {['Salesforce', 'Okta', 'Slack'].map((stack, i) => (
+              <span key={i} style={{ fontSize: '18px', fontWeight: 700, color: C.textMid }}>{stack}</span>
+            ))}
+          </div>
+          <p style={{ fontSize: '14px', color: C.textMid, maxWidth: '560px', margin: '0 auto' }}>
+            Native API and SSO support for enterprise identity and CRM systems.
+          </p>
+        </div>
+      </section>
 
       {/* 8. BOTTOM CTA */}
       <FadeInSection>
@@ -627,10 +566,10 @@ export default function GHLAgencies() {
               overflow: 'hidden'
             }}>
               <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 700, color: C.white, marginBottom: '16px', letterSpacing: '-0.02em' }}>
-                Ready to launch your own branded dialer? — free for 14 days
+                Ready to roll out Voxiq across your org?
               </h2>
               <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
-                Set up your white-label agency portal in under 10 minutes.
+                Talk to our enterprise team about volume pricing, security review, and rollout planning.
               </p>
               <Link
                 to="/signup"
@@ -653,7 +592,7 @@ export default function GHLAgencies() {
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                Apply for Agency Program
+                Talk to Sales
               </Link>
             </div>
           </div>

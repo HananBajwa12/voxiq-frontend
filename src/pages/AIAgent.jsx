@@ -15,6 +15,51 @@ import {
   MessageCircle
 } from 'lucide-react';
 
+/* ─────────────────────────────────────────
+   COLOR TOKENS — Ocean Breeze Multicolor
+   (matches InboundCalls.jsx)
+───────────────────────────────────────── */
+const C = {
+  midnight: '#020D1A',
+  oceanDeep: '#0A2540',
+  oceanMid: '#0D3B6E',
+  breeze: '#7FCDFF',
+  breezeLight: '#DFF7FF',
+  foam: '#F0FBFF',
+  cream: '#FFFDF5',
+  white: '#FFFFFF',
+  textDark: '#0A2540',
+  textMid: '#2D5986',
+  textMuted: '#6B9AB8',
+  liveGreen: '#00E5A0',
+  purple: '#7C6DFA',
+  warn: '#F59E0B',
+};
+
+const CARD_HOVER_CSS = `
+  .ib-card-hover {
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .ib-card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(127,205,255,.15);
+    border-color: ${C.breeze} !important;
+  }
+`;
+
+function InjectCardHoverStyles() {
+  useEffect(() => {
+    const id = 'voxiq-inbound-styles';
+    if (!document.getElementById(id)) {
+      const s = document.createElement('style');
+      s.id = id;
+      s.textContent = CARD_HOVER_CSS;
+      document.head.appendChild(s);
+    }
+  }, []);
+  return null;
+}
+
 function FadeInSection({ children }) {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef();
@@ -52,7 +97,8 @@ export default function AIAgent() {
 
   return (
     <div style={{ background: '#020D1A', minHeight: '100vh', overflowX: 'hidden' }}>
-      
+      <InjectCardHoverStyles />
+
       {/* 1. Feature Hero */}
             <section style={{ 
         padding: '120px 0 80px', 
@@ -72,6 +118,7 @@ export default function AIAgent() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
+            objectPosition: 'center 15%',
             zIndex: 1,
             top: 0,
             left: 0,
@@ -205,10 +252,10 @@ export default function AIAgent() {
 
       {/* 2. Key Benefits */}
       <FadeInSection>
-        <section style={{ padding: '80px 0', background: '#020D1A' }}>
+        <section style={{ padding: '80px 0', background: C.breezeLight }}>
           <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#F1F5F9', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em' }}>
+              <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: C.textDark, fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em' }}>
                 Key Benefits
               </h2>
             </div>
@@ -220,24 +267,24 @@ export default function AIAgent() {
             }} className="benefits-grid">
               {[
                 {
-                  icon: <Bot size={24} color="#7FCDFF" />,
+                  icon: <Bot size={24} color={C.oceanMid} />,
                   title: 'Instant Lead Response',
                   desc: 'New lead signs up? AI Agent calls them within 60 seconds — while interest is hot.'
                 },
                 {
-                  icon: <MessageCircle size={24} color="#7FCDFF" />,
+                  icon: <MessageCircle size={24} color={C.oceanMid} />,
                   title: 'Natural Voice Conversation',
                   desc: 'Not a robotic IVR. A real conversation with natural language understanding.'
                 },
                 {
-                  icon: <Calendar size={24} color="#7FCDFF" />,
+                  icon: <Calendar size={24} color={C.oceanMid} />,
                   title: 'Books Meetings Automatically',
                   desc: "Qualified leads get booked directly into your rep's calendar without human intervention."
                 }
               ].map((card, idx) => (
-                <div key={idx} style={{
-                  background: '#020D1A',
-                  border: '1px solid #1e2537',
+                <div key={idx} className="ib-card-hover" style={{
+                  background: C.white,
+                  border: '1px solid rgba(10,37,64,.1)',
                   borderRadius: '16px',
                   padding: '32px'
                 }}>
@@ -245,7 +292,8 @@ export default function AIAgent() {
                     width: '48px',
                     height: '48px',
                     borderRadius: '10px',
-                    background: 'rgba(127, 205, 255, 0.08)',
+                    background: C.breezeLight,
+                    border: '1px solid rgba(127,205,255,.5)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -253,10 +301,10 @@ export default function AIAgent() {
                   }}>
                     {card.icon}
                   </div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#F1F5F9', marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: C.textDark, marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     {card.title}
                   </h3>
-                  <p style={{ fontSize: '0.95rem', color: '#6B9AB8', lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     {card.desc}
                   </p>
                 </div>
@@ -268,29 +316,35 @@ export default function AIAgent() {
 
       {/* 3. How It Works */}
       <FadeInSection>
-        <section style={{ padding: '80px 0', background: '#020D1A', borderBottom: '1px solid #1e2537' }}>
+        <section style={{ padding: '80px 0', background: C.cream }}>
           <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#F1F5F9', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>How It Works</h2>
+              <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: C.textDark, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>How It Works</h2>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }} className="steps-container">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="steps-container">
               {[
                 { step: '01', title: 'New lead submits a form or signs up', desc: 'Trigger outreach schedules in seconds.' },
                 { step: '02', title: 'AI Agent calls them immediately, runs your qualification script', desc: 'Hold natural dialogues natively.' },
                 { step: '03', title: 'Qualified lead → booked on rep calendar. Unqualified → nurture sequence triggered.', desc: 'Push outcomes back to CRM pipeline segments.' }
               ].map((step, idx) => (
-                <div key={idx} style={{ position: 'relative', zIndex: 1 }}>
+                <div key={idx} className="ib-card-hover" style={{
+                  background: C.white,
+                  border: '1px solid rgba(10,37,64,.08)',
+                  borderRadius: '20px',
+                  padding: '28px',
+                  position: 'relative', zIndex: 1
+                }}>
                   <div style={{
-                    fontSize: '4.5rem',
-                    fontWeight: 900,
-                    color: 'rgba(127, 205, 255, 0.08)',
+                    fontSize: '3.5rem',
+                    fontWeight: 800,
+                    color: C.breezeLight,
                     fontFamily: "'Plus Jakarta Sans', sans-serif",
                     lineHeight: '1',
-                    marginBottom: '-20px'
+                    marginBottom: '24px'
                   }}>{step.step}</div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#F1F5F9', marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.title}</h3>
-                  <p style={{ fontSize: '0.95rem', color: '#6B9AB8', lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.desc}</p>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: C.textDark, marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.title}</h3>
+                  <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -300,10 +354,10 @@ export default function AIAgent() {
 
       {/* 4. Feature Deep Dive */}
       <FadeInSection>
-        <section style={{ padding: '100px 0', background: '#020D1A' }}>
+        <section style={{ padding: '100px 0', background: C.oceanMid }}>
           <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
-              
+
               {/* Section A */}
               <div style={{
                 display: 'grid',
@@ -312,13 +366,13 @@ export default function AIAgent() {
                 alignItems: 'center'
               }} className="feature-row">
                 <div>
-                  <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#F1F5F9', marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em', lineHeight: '1.2' }}>
+                  <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: C.breezeLight, marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em', lineHeight: '1.2' }}>
                     How the AI Agent qualification script works
                   </h2>
-                  <p style={{ fontSize: '1.1rem', color: '#6B9AB8', lineHeight: '1.6', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.6', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     Configure steps to ask qualification prompts, resolve objections, and book meetings. Customize parameters natively in the script console.
                   </p>
-                  <div style={{ background: 'rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.06)', borderRadius: '8px', padding: '16px', fontSize: '0.82rem', lineHeight: '1.4' }}>
+                  <div style={{ background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', borderRadius: '10px', padding: '16px', fontSize: '0.82rem', lineHeight: '1.4', color: C.breezeLight }}>
                     <strong>Example Dialogue:</strong><br />
                     AI: "Hi, this is Aria calling from [Company]. Is this Sarah?"<br />
                     Lead: "Yes, speaking."<br />
@@ -328,15 +382,15 @@ export default function AIAgent() {
                   </div>
                 </div>
                 <div style={{
-                  background: '#0F0F1A',
-                  border: '1.5px solid rgba(127, 205, 255, 0.25)',
-                  borderRadius: '20px',
+                  background: 'rgba(2,13,26,.6)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(127,205,255,.12)',
+                  borderRadius: '18px',
                   padding: '24px',
-                  color: 'white',
-                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)'
+                  boxShadow: '0 24px 48px rgba(0,0,0,.3)'
                 }}>
-                  <h4 style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: '#7FCDFF' }}>Script Builder HUD</h4>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.8rem' }}>
+                  <h4 style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: C.breeze }}>Script Builder HUD</h4>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.8rem', color: C.breezeLight }}>
                     <div>1. Introduction node</div>
                     <div>2. Lead CRM usage verify</div>
                     <div>3. Team seat sizing count</div>
@@ -352,24 +406,24 @@ export default function AIAgent() {
                 alignItems: 'center'
               }} className="feature-row">
                 <div style={{
-                  background: '#0F0F1A',
-                  border: '1.5px solid rgba(127, 205, 255, 0.25)',
-                  borderRadius: '20px',
+                  background: 'rgba(2,13,26,.6)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(127,205,255,.12)',
+                  borderRadius: '18px',
                   padding: '24px',
-                  color: 'white',
-                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 24px 48px rgba(0,0,0,.3)',
                   order: 0
                 }}>
-                  <h4 style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: '#7FCDFF' }}>GHL Action Mapping</h4>
-                  <div style={{ background: '#020D1A', border: '1px solid #1e2537', padding: '12px', borderRadius: '8px', fontSize: '0.8rem', fontFamily: 'monospace' }}>
+                  <h4 style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: C.breeze }}>GHL Action Mapping</h4>
+                  <div style={{ background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', padding: '12px', borderRadius: '10px', fontSize: '0.8rem', fontFamily: 'monospace', color: C.breezeLight }}>
                     {"Event: Lead Qualified\nAction: Trigger GHL Workflow"}
                   </div>
                 </div>
                 <div>
-                  <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#F1F5F9', marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em', lineHeight: '1.2' }}>
+                  <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: C.breezeLight, marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em', lineHeight: '1.2' }}>
                     AI Agent + GHL workflows
                   </h2>
-                  <p style={{ fontSize: '1.1rem', color: '#6B9AB8', lineHeight: '1.6', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.6', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     Fire automations natively. Map calling outcomes back to pipeline states inside GoHighLevel campaigns.
                   </p>
                 </div>
@@ -382,10 +436,10 @@ export default function AIAgent() {
 
       {/* 5. Use Cases */}
       <FadeInSection>
-        <section style={{ padding: '80px 0', background: '#020D1A' }}>
+        <section style={{ padding: '80px 0', background: C.foam }}>
           <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#F1F5F9', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Use Cases</h2>
+              <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: C.textDark, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Use Cases</h2>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }} className="usecases-grid">
@@ -394,14 +448,14 @@ export default function AIAgent() {
                 { title: 'Real estate agents getting property inquiry leads', desc: 'Secure booking schedules immediately on neighborhood signs.' },
                 { title: 'Insurance agencies running inbound lead campaigns', desc: 'Optimize renew callbacks using auto qualifications.' }
               ].map((uc, i) => (
-                <div key={i} style={{
-                  background: '#020D1A',
-                  border: '1.5px solid rgba(127, 205, 255, 0.15)',
+                <div key={i} className="ib-card-hover" style={{
+                  background: C.white,
+                  border: '1px solid rgba(10,37,64,.08)',
                   borderRadius: '16px',
                   padding: '30px'
                 }}>
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#F1F5F9', marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{uc.title}</h3>
-                  <p style={{ fontSize: '0.95rem', color: '#6B9AB8', lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{uc.desc}</p>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: C.textDark, marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{uc.title}</h3>
+                  <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{uc.desc}</p>
                 </div>
               ))}
             </div>
@@ -410,14 +464,14 @@ export default function AIAgent() {
       </FadeInSection>
 
       {/* EXTRA SECTION: HOW AI AGENT HANDLES A CALL */}
-      <section style={{ padding: '100px 0', background: '#020D1A', borderTop: '1px solid #1e2537' }}>
+      <section style={{ padding: '100px 0', background: C.oceanMid }}>
         <div className="container" style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#F1F5F9', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>HOW AI AGENT HANDLES A CALL</h2>
-            <p style={{ color: '#6B9AB8', fontSize: '1.1rem', marginTop: '8px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>A chronological overview of Aria's qualification timeline</p>
+            <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: C.breezeLight, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>HOW AI AGENT HANDLES A CALL</h2>
+            <p style={{ color: 'rgba(127,205,255,.65)', fontSize: '1.1rem', marginTop: '8px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>A chronological overview of Aria's qualification timeline</p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             {[
               { num: 'Step 1', title: 'Greeting', text: '"Hi, this is Aria calling from [Company]. Is this [Name]?"' },
               { num: 'Step 2', title: 'Permission', text: '"You recently requested info about [Product]. Do you have 2 minutes?"' },
@@ -426,8 +480,9 @@ export default function AIAgent() {
               { num: 'Step 5', title: 'Handoff', text: 'Rep gets notification with call summary + lead score' }
             ].map((node, idx) => (
               <div key={idx} style={{
-                background: '#020D1A',
-                border: '1px solid #1e2537',
+                background: 'rgba(2,13,26,.6)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(127,205,255,.12)',
                 borderRadius: '12px',
                 padding: '20px 24px',
                 display: 'flex',
@@ -438,8 +493,8 @@ export default function AIAgent() {
                   width: '80px',
                   height: '40px',
                   borderRadius: '6px',
-                  background: 'rgba(127, 205, 255, 0.08)',
-                  color: '#7FCDFF',
+                  background: 'rgba(127,205,255,.08)',
+                  color: C.breeze,
                   fontWeight: 800,
                   fontSize: '0.85rem',
                   display: 'flex',
@@ -448,8 +503,8 @@ export default function AIAgent() {
                   flexShrink: 0
                 }}>{node.num}</div>
                 <div>
-                  <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#F1F5F9', margin: '0 0 4px 0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{node.title}</h4>
-                  <p style={{ fontSize: '0.9rem', color: '#6B9AB8', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{node.text}</p>
+                  <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: C.breezeLight, margin: '0 0 4px 0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{node.title}</h4>
+                  <p style={{ fontSize: '0.9rem', color: 'rgba(127,205,255,.65)', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{node.text}</p>
                 </div>
               </div>
             ))}
@@ -458,23 +513,24 @@ export default function AIAgent() {
       </section>
 
       {/* Related Features */}
-      <section style={{ padding: '60px 0', background: '#020D1A', borderTop: '1px solid #1e2537' }}>
+      <section style={{ padding: '60px 0', background: C.white, borderTop: '1px solid rgba(10,37,64,.07)' }}>
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
-          <h4 style={{ fontSize: '0.85rem', fontWeight: 800, color: '#6B9AB8', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          <h4 style={{ fontSize: '0.85rem', fontWeight: 800, color: C.textMuted, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             Related Features
           </h4>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }} className="related-grid">
             {[
-              { name: 'Outbound Calls', path: '/features/outbound-calls' },
-              { name: 'Analytics', path: '/features/analytics' },
-              { name: 'Integrations', path: '/integrations' }
+              { name: 'Outbound Calls', path: '/features/outbound-calls', color: C.breeze },
+              { name: 'Analytics', path: '/features/analytics', color: C.liveGreen },
+              { name: 'Integrations', path: '/integrations', color: C.purple }
             ].map((rf, i) => (
-              <Link 
-                key={i} 
+              <Link
+                key={i}
                 to={rf.path}
+                className="ib-card-hover"
                 style={{
-                  background: '#020D1A',
-                  border: '1px solid #1e2537',
+                  background: C.white,
+                  border: '1.5px solid rgba(10,37,64,.09)',
                   borderRadius: '12px',
                   padding: '20px 24px',
                   textDecoration: 'none',
@@ -484,8 +540,8 @@ export default function AIAgent() {
                   alignItems: 'center'
                 }}
               >
-                <span style={{ fontSize: '1rem', fontWeight: 800, color: '#F1F5F9', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{rf.name}</span>
-                <ArrowRight size={16} color="#7FCDFF" />
+                <span style={{ fontSize: '1rem', fontWeight: 800, color: C.textDark, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{rf.name}</span>
+                <ArrowRight size={16} color={rf.color} />
               </Link>
             ))}
           </div>
@@ -494,22 +550,25 @@ export default function AIAgent() {
 
       {/* CTA Section */}
       <FadeInSection>
-        <section style={{ padding: '80px 0', background: '#111929', borderTop: '1px solid #1e2537', borderBottom: '1px solid #1e2537' }}>
+        <section style={{
+          padding: '100px 0 160px',
+          background: `linear-gradient(135deg, ${C.oceanDeep} 0%, ${C.oceanMid} 50%, ${C.oceanDeep} 100%)`,
+        }}>
           <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', textAlign: 'center' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 900, color: 'white', marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 900, color: C.white, marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Automate lead qualification on autopilot
             </h2>
             <Link
               to="/signup"
               style={{
-                background: '#7FCDFF',
-                color: 'white',
+                background: `linear-gradient(135deg, ${C.breeze}, #5BB8F5)`,
+                color: C.midnight,
                 padding: '16px 40px',
                 borderRadius: '10px',
                 fontWeight: 700,
                 fontSize: '1.05rem',
                 textDecoration: 'none',
-                boxShadow: '0 8px 24px rgba(127, 205, 255, 0.35)',
+                boxShadow: `0 0 24px rgba(127,205,255,.28), 0 8px 24px rgba(127,205,255,.18)`,
                 display: 'inline-block',
                 fontFamily: "'Plus Jakarta Sans', sans-serif"
               }}

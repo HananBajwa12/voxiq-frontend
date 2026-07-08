@@ -14,6 +14,51 @@ import {
   PhoneCall
 } from 'lucide-react';
 
+/* ─────────────────────────────────────────
+   COLOR TOKENS — Ocean Breeze Multicolor
+   (matches InboundCalls.jsx)
+───────────────────────────────────────── */
+const C = {
+  midnight: '#020D1A',
+  oceanDeep: '#0A2540',
+  oceanMid: '#0D3B6E',
+  breeze: '#7FCDFF',
+  breezeLight: '#DFF7FF',
+  foam: '#F0FBFF',
+  cream: '#FFFDF5',
+  white: '#FFFFFF',
+  textDark: '#0A2540',
+  textMid: '#2D5986',
+  textMuted: '#6B9AB8',
+  liveGreen: '#00E5A0',
+  purple: '#7C6DFA',
+  warn: '#F59E0B',
+};
+
+const CARD_HOVER_CSS = `
+  .ib-card-hover {
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .ib-card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(127,205,255,.15);
+    border-color: ${C.breeze} !important;
+  }
+`;
+
+function InjectCardHoverStyles() {
+  useEffect(() => {
+    const id = 'voxiq-inbound-styles';
+    if (!document.getElementById(id)) {
+      const s = document.createElement('style');
+      s.id = id;
+      s.textContent = CARD_HOVER_CSS;
+      document.head.appendChild(s);
+    }
+  }, []);
+  return null;
+}
+
 function FadeInSection({ children }) {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef();
@@ -51,7 +96,8 @@ export default function Analytics() {
 
   return (
     <div style={{ background: '#020D1A', minHeight: '100vh', overflowX: 'hidden' }}>
-      
+      <InjectCardHoverStyles />
+
       {/* 1. Feature Hero */}
             <section style={{ 
         padding: '120px 0 80px', 
@@ -71,6 +117,7 @@ export default function Analytics() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
+            objectPosition: 'center 15%',
             zIndex: 1,
             top: 0,
             left: 0,
@@ -191,10 +238,10 @@ export default function Analytics() {
 
       {/* 2. Key Benefits */}
       <FadeInSection>
-        <section style={{ padding: '80px 0', background: '#020D1A' }}>
+        <section style={{ padding: '80px 0', background: C.breezeLight }}>
           <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#F1F5F9', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em' }}>
+              <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: C.textDark, fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em' }}>
                 Key Benefits
               </h2>
             </div>
@@ -206,24 +253,24 @@ export default function Analytics() {
             }} className="benefits-grid">
               {[
                 {
-                  icon: <Users size={24} color="#7FCDFF" />,
+                  icon: <Users size={24} color={C.oceanMid} />,
                   title: 'Live Team Dashboard',
                   desc: "See every active call on your floor right now. Who's talking, who's idle, who needs coaching."
                 },
                 {
-                  icon: <TrendingUp size={24} color="#7FCDFF" />,
+                  icon: <TrendingUp size={24} color={C.oceanMid} />,
                   title: 'Connect Rate Analysis',
                   desc: 'Know the best times to call by area code, day of week, and time of day.'
                 },
                 {
-                  icon: <BarChart2 size={24} color="#7FCDFF" />,
+                  icon: <BarChart2 size={24} color={C.oceanMid} />,
                   title: 'Rep Performance Leaderboards',
                   desc: 'Track calls, connect rate, talk time, and meetings booked per rep — daily.'
                 }
               ].map((card, idx) => (
-                <div key={idx} style={{
-                  background: '#020D1A',
-                  border: '1px solid #1e2537',
+                <div key={idx} className="ib-card-hover" style={{
+                  background: C.white,
+                  border: '1px solid rgba(10,37,64,.1)',
                   borderRadius: '16px',
                   padding: '32px'
                 }}>
@@ -231,7 +278,8 @@ export default function Analytics() {
                     width: '48px',
                     height: '48px',
                     borderRadius: '10px',
-                    background: 'rgba(127, 205, 255, 0.08)',
+                    background: C.breezeLight,
+                    border: '1px solid rgba(127,205,255,.5)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -239,10 +287,10 @@ export default function Analytics() {
                   }}>
                     {card.icon}
                   </div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#F1F5F9', marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: C.textDark, marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     {card.title}
                   </h3>
-                  <p style={{ fontSize: '0.95rem', color: '#6B9AB8', lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     {card.desc}
                   </p>
                 </div>
@@ -254,29 +302,35 @@ export default function Analytics() {
 
       {/* 3. How It Works */}
       <FadeInSection>
-        <section style={{ padding: '80px 0', background: '#020D1A', borderBottom: '1px solid #1e2537' }}>
+        <section style={{ padding: '80px 0', background: C.cream }}>
           <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#F1F5F9', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>How It Works</h2>
+              <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: C.textDark, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>How It Works</h2>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }} className="steps-container">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="steps-container">
               {[
                 { step: '01', title: 'Voxiq tracks every call, outcome, and duration', desc: 'Gathers campaign updates dynamically.' },
                 { step: '02', title: 'Data populates live dashboards in real time', desc: 'Renders leaderboards on executive display screens.' },
                 { step: '03', title: 'Weekly report emails sent to manager automatically', desc: 'Audits outbound campaign connection averages.' }
               ].map((step, idx) => (
-                <div key={idx} style={{ position: 'relative', zIndex: 1 }}>
+                <div key={idx} className="ib-card-hover" style={{
+                  background: C.white,
+                  border: '1px solid rgba(10,37,64,.08)',
+                  borderRadius: '20px',
+                  padding: '28px',
+                  position: 'relative', zIndex: 1
+                }}>
                   <div style={{
-                    fontSize: '4.5rem',
-                    fontWeight: 900,
-                    color: 'rgba(127, 205, 255, 0.08)',
+                    fontSize: '3.5rem',
+                    fontWeight: 800,
+                    color: C.breezeLight,
                     fontFamily: "'Plus Jakarta Sans', sans-serif",
                     lineHeight: '1',
-                    marginBottom: '-20px'
+                    marginBottom: '24px'
                   }}>{step.step}</div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#F1F5F9', marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.title}</h3>
-                  <p style={{ fontSize: '0.95rem', color: '#6B9AB8', lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.desc}</p>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: C.textDark, marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.title}</h3>
+                  <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.desc}</p>
                 </div>
               ))}
             </div>
@@ -286,10 +340,10 @@ export default function Analytics() {
 
       {/* 4. Feature Deep Dive */}
       <FadeInSection>
-        <section style={{ padding: '100px 0', background: '#020D1A' }}>
+        <section style={{ padding: '100px 0', background: C.oceanMid }}>
           <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
-              
+
               {/* Section A */}
               <div style={{
                 display: 'grid',
@@ -298,32 +352,32 @@ export default function Analytics() {
                 alignItems: 'center'
               }} className="feature-row">
                 <div>
-                  <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#F1F5F9', marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em', lineHeight: '1.2' }}>
+                  <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: C.breezeLight, marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em', lineHeight: '1.2' }}>
                     The 5 metrics every sales manager must track
                   </h2>
-                  <p style={{ fontSize: '1.1rem', color: '#6B9AB8', lineHeight: '1.6', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.6', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     Identify calling outcomes directly on the dashboards:
                   </p>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600 }}><CheckCircle2 size={16} color="#7FCDFF" /> Call volume levels</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600 }}><CheckCircle2 size={16} color="#7FCDFF" /> Connect rate percentage</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600 }}><CheckCircle2 size={16} color="#7FCDFF" /> Average talk time s</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600 }}><CheckCircle2 size={16} color="#7FCDFF" /> Outcome rate values</li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600 }}><CheckCircle2 size={16} color="#7FCDFF" /> Pipeline created deals</li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600, color: C.breeze }}><CheckCircle2 size={16} color={C.liveGreen} /> Call volume levels</li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600, color: C.breeze }}><CheckCircle2 size={16} color={C.liveGreen} /> Connect rate percentage</li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600, color: C.breeze }}><CheckCircle2 size={16} color={C.liveGreen} /> Average talk time s</li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600, color: C.breeze }}><CheckCircle2 size={16} color={C.liveGreen} /> Outcome rate values</li>
+                    <li style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600, color: C.breeze }}><CheckCircle2 size={16} color={C.liveGreen} /> Pipeline created deals</li>
                   </ul>
                 </div>
                 <div style={{
-                  background: '#0F0F1A',
-                  border: '1.5px solid rgba(127, 205, 255, 0.25)',
-                  borderRadius: '20px',
+                  background: 'rgba(2,13,26,.6)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(127,205,255,.12)',
+                  borderRadius: '18px',
                   padding: '24px',
-                  color: 'white',
-                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)'
+                  boxShadow: '0 24px 48px rgba(0,0,0,.3)'
                 }}>
-                  <h4 style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: '#7FCDFF' }}>5 Core Metrics Panel</h4>
+                  <h4 style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: C.breeze }}>5 Core Metrics Panel</h4>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '0.75rem' }}>
-                    <div style={{ background: '#020D1A', border: '1px solid #1e2537', padding: '8px', borderRadius: '4px' }}>Dials: 1,247</div>
-                    <div style={{ background: '#020D1A', border: '1px solid #1e2537', padding: '8px', borderRadius: '4px' }}>Connect: 38%</div>
+                    <div style={{ background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', padding: '8px', borderRadius: '6px', color: C.breezeLight }}>Dials: 1,247</div>
+                    <div style={{ background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', padding: '8px', borderRadius: '6px', color: C.breezeLight }}>Connect: 38%</div>
                   </div>
                 </div>
               </div>
@@ -336,24 +390,24 @@ export default function Analytics() {
                 alignItems: 'center'
               }} className="feature-row">
                 <div style={{
-                  background: '#0F0F1A',
-                  border: '1.5px solid rgba(127, 205, 255, 0.25)',
-                  borderRadius: '20px',
+                  background: 'rgba(2,13,26,.6)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(127,205,255,.12)',
+                  borderRadius: '18px',
                   padding: '24px',
-                  color: 'white',
-                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)',
+                  boxShadow: '0 24px 48px rgba(0,0,0,.3)',
                   order: 0
                 }}>
-                  <h4 style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: '#7FCDFF' }}>Automated Reports Console</h4>
-                  <div style={{ background: '#020D1A', border: '1px solid #1e2537', padding: '12px', borderRadius: '8px', fontSize: '0.8rem' }}>
+                  <h4 style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: C.breeze }}>Automated Reports Console</h4>
+                  <div style={{ background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', padding: '12px', borderRadius: '10px', fontSize: '0.8rem', color: C.breezeLight }}>
                     {"Email schedules: Weekly Summary PDF -> Active"}
                   </div>
                 </div>
                 <div>
-                  <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: '#F1F5F9', marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em', lineHeight: '1.2' }}>
+                  <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: C.breezeLight, marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em', lineHeight: '1.2' }}>
                     Setting up automated performance reports
                   </h2>
-                  <p style={{ fontSize: '1.1rem', color: '#6B9AB8', lineHeight: '1.6', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.6', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     Configure automatic email updates to deliver weekly reports directly to leadership channels.
                   </p>
                 </div>
@@ -365,23 +419,24 @@ export default function Analytics() {
       </FadeInSection>
 
       {/* Related Features */}
-      <section style={{ padding: '60px 0', background: '#020D1A', borderTop: '1px solid #1e2537' }}>
+      <section style={{ padding: '60px 0', background: C.white, borderTop: '1px solid rgba(10,37,64,.07)' }}>
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
-          <h4 style={{ fontSize: '0.85rem', fontWeight: 800, color: '#6B9AB8', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          <h4 style={{ fontSize: '0.85rem', fontWeight: 800, color: C.textMuted, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             Related Features
           </h4>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }} className="related-grid">
             {[
-              { name: 'Call Recording', path: '/features/call-recording' },
-              { name: 'Auto Dialer', path: '/features/auto-dialer' },
-              { name: 'Integrations', path: '/integrations' }
+              { name: 'Call Recording', path: '/features/call-recording', color: C.breeze },
+              { name: 'Auto Dialer', path: '/features/auto-dialer', color: C.liveGreen },
+              { name: 'Integrations', path: '/integrations', color: C.purple }
             ].map((rf, i) => (
-              <Link 
-                key={i} 
+              <Link
+                key={i}
                 to={rf.path}
+                className="ib-card-hover"
                 style={{
-                  background: '#020D1A',
-                  border: '1px solid #1e2537',
+                  background: C.white,
+                  border: '1.5px solid rgba(10,37,64,.09)',
                   borderRadius: '12px',
                   padding: '20px 24px',
                   textDecoration: 'none',
@@ -391,8 +446,8 @@ export default function Analytics() {
                   alignItems: 'center'
                 }}
               >
-                <span style={{ fontSize: '1rem', fontWeight: 800, color: '#F1F5F9', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{rf.name}</span>
-                <ArrowRight size={16} color="#7FCDFF" />
+                <span style={{ fontSize: '1rem', fontWeight: 800, color: C.textDark, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{rf.name}</span>
+                <ArrowRight size={16} color={rf.color} />
               </Link>
             ))}
           </div>
@@ -401,22 +456,25 @@ export default function Analytics() {
 
       {/* CTA Section */}
       <FadeInSection>
-        <section style={{ padding: '80px 0', background: '#111929', borderTop: '1px solid #1e2537', borderBottom: '1px solid #1e2537' }}>
+        <section style={{
+          padding: '100px 0 160px',
+          background: `linear-gradient(135deg, ${C.oceanDeep} 0%, ${C.oceanMid} 50%, ${C.oceanDeep} 100%)`,
+        }}>
           <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', textAlign: 'center' }}>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 900, color: 'white', marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 900, color: C.white, marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Unlock team connect analytics today
             </h2>
             <Link
               to="/signup"
               style={{
-                background: '#7FCDFF',
-                color: 'white',
+                background: `linear-gradient(135deg, ${C.breeze}, #5BB8F5)`,
+                color: C.midnight,
                 padding: '16px 40px',
                 borderRadius: '10px',
                 fontWeight: 700,
                 fontSize: '1.05rem',
                 textDecoration: 'none',
-                boxShadow: '0 8px 24px rgba(127, 205, 255, 0.35)',
+                boxShadow: `0 0 24px rgba(127,205,255,.28), 0 8px 24px rgba(127,205,255,.18)`,
                 display: 'inline-block',
                 fontFamily: "'Plus Jakarta Sans', sans-serif"
               }}

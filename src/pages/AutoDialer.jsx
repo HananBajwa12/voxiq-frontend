@@ -334,7 +334,7 @@ export default function AutoDialer() {
       </section>
 
       {/* ══ CTA — ocean gradient ══ */}
-      <section style={{ background: `linear-gradient(135deg,${C.oceanDeep},${C.oceanMid},${C.oceanDeep})`, padding: '80px 0', textAlign: 'center' }}>
+      <section style={{ background: `linear-gradient(135deg,${C.oceanDeep},${C.oceanMid},${C.oceanDeep})`, paddingTop: '80px', paddingBottom: '160px', textAlign: 'center' }}>
         <div style={wrap}>
           <Reveal>
             <p style={{ fontSize: '10px', fontWeight: 700, color: 'rgba(127,205,255,.4)', letterSpacing: '.15em', textTransform: 'uppercase', marginBottom: '14px' }}>GET STARTED</p>

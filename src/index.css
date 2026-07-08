@@ -1065,6 +1065,7 @@ tr:last-child td {
   font-family: inherit;
   transition: border-color 0.2s, box-shadow 0.2s;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 .auth-field input:focus,

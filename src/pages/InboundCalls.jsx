@@ -487,88 +487,7 @@ export default function InboundCalls() {
               {!isMobile && <div />}
             </div>
 
-            {/* RIGHT CARD - ABSOLUTELY POSITIONED AT BOTTOM RIGHT */}
-            {!isMobile && (
-              <motion.div
-                animate={{ y: [0, -12, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                style={{
-                  background: '#FFFFFF',
-                  border: '1px solid rgba(10,37,64,0.1)',
-                  borderRadius: '22px',
-                  padding: '22px',
-                  width: '300px',
-                  boxShadow: '0 24px 48px rgba(0,0,0,0.15)',
-                  position: 'absolute',
-                  bottom: '20px',
-                  right: '40px',
-                  zIndex: 10
-                }}
-              >
-                {/* Card header */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '14px' }}>
-                  <span style={{
-                    width: 7, height: 7, borderRadius: '50%',
-                    background: '#10B981',
-                    boxShadow: '0 0 8px #10B981',
-                    animation: 'pulse-glow 1.5s infinite',
-                  }} />
-                  <span style={{ fontSize: '10px', color: '#0D3B6E', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase' }}>
-                    Inbound Queue
-                  </span>
-                  <span style={{
-                    marginLeft: 'auto', fontSize: '10px',
-                    background: 'rgba(13,59,110,0.08)',
-                    border: '1px solid rgba(13,59,110,0.15)',
-                    color: '#0D3B6E', padding: '2px 10px', borderRadius: '20px',
-                    fontWeight: 600
-                  }}>3 waiting</span>
-                </div>
 
-                {/* Queue rows */}
-                {[
-                  { id: '+1(512)***-1901', wait: '0:14', status: 'Connecting...', col: '#10B981' },
-                  { id: '+1(206)***-8822', wait: '0:48', status: 'On hold', col: '#EF4444' },
-                  { id: '+1(310)***-4411', wait: '1:02', status: 'On hold', col: '#EF4444' },
-                ].map((row, i) => (
-                  <div key={i} style={{
-                    background: '#F8FAFC',
-                    border: '1px solid rgba(10,37,64,0.05)',
-                    borderRadius: '10px', padding: '10px 12px',
-                    marginBottom: '8px',
-                    display: 'flex', alignItems: 'center', gap: '10px',
-                  }}>
-                    <div style={{
-                      width: 32, height: 32, borderRadius: '8px',
-                      background: 'linear-gradient(135deg, #7FCDFF, #0D3B6E)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '11px', fontWeight: 700, color: '#FFFFFF', flexShrink: 0,
-                    }}>
-                      <Phone size={13} />
-                    </div>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: '11px', fontWeight: 600, color: '#0A2540', marginBottom: '2px' }}>{row.id}</div>
-                      <div style={{ fontSize: '10px', color: row.col }}>{row.status}</div>
-                    </div>
-                    <span style={{
-                      fontFamily: "'Space Grotesk',sans-serif",
-                      fontSize: '13px', fontWeight: 700,
-                      color: row.col,
-                    }}>{row.wait}</span>
-                  </div>
-                ))}
-
-                {/* Bottom strip */}
-                <div style={{
-                  marginTop: '12px', paddingTop: '10px',
-                  borderTop: '1px solid rgba(10,37,64,0.08)',
-                  display: 'flex', justifyContent: 'space-between',
-                }}>
-                  <span style={{ fontSize: '10px', color: '#64748B' }}>Avg wait today</span>
-                  <span style={{ fontSize: '10px', color: '#10B981', fontWeight: 700 }}>↓ 18s</span>
-                </div>
-              </motion.div>
-            )}
           </div>
         </section>
 
@@ -694,16 +613,8 @@ export default function InboundCalls() {
                       fontFamily: "'Space Grotesk',sans-serif",
                       fontSize: '3.5rem', fontWeight: 800,
                       color: C.breezeLight, lineHeight: 1,
-                      marginBottom: '-10px',
+                      marginBottom: '24px',
                     }}>{step.num}</div>
-
-                    <div style={{
-                      width: 44, height: 44, borderRadius: '12px',
-                      background: C.breezeLight,
-                      border: `1px solid rgba(127,205,255,.5)`,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: C.oceanMid, margin: '12px 0 14px',
-                    }}>{step.icon}</div>
 
                     <h3 style={{
                       fontFamily: "'Space Grotesk',sans-serif",
@@ -1062,7 +973,7 @@ export default function InboundCalls() {
         ═══════════════════════════════════════════ */}
         <section style={{
           background: `linear-gradient(135deg, ${C.oceanDeep} 0%, ${C.oceanMid} 50%, ${C.oceanDeep} 100%)`,
-          padding: '100px 0', textAlign: 'center', position: 'relative', overflow: 'hidden',
+          padding: '100px 0 160px', textAlign: 'center', position: 'relative', overflow: 'hidden',
         }}>
           {/* Rings decoration behind CTA */}
           {!isMobile && (
