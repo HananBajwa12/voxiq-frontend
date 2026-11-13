@@ -529,23 +529,6 @@ export default function SalesTeams() {
         </section>
       </FadeInSection>
 
-      {/* 7. INTEGRATIONS */}
-      <section style={{ padding: '80px 0', background: C.foam }}>
-        <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', textAlign: 'center' }}>
-          <h4 style={{ fontSize: '11px', fontWeight: 700, color: C.textMuted, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '32px' }}>
-            Natively connects with your tech stack
-          </h4>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '40px', flexWrap: 'wrap', marginBottom: '32px', opacity: 0.85 }}>
-            {['Salesforce', 'HubSpot', 'Pipedrive'].map((stack, i) => (
-              <span key={i} style={{ fontSize: '18px', fontWeight: 700, color: C.textMid }}>{stack}</span>
-            ))}
-          </div>
-          <p style={{ fontSize: '14px', color: C.textMid, maxWidth: '560px', margin: '0 auto' }}>
-            Native API support for CRM sync and sales workflow automation.
-          </p>
-        </div>
-      </section>
-
       {/* 8. BOTTOM CTA */}
       <FadeInSection>
         <section style={{
@@ -566,7 +549,7 @@ export default function SalesTeams() {
               overflow: 'hidden'
             }}>
               <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 700, color: C.white, marginBottom: '16px', letterSpacing: '-0.02em' }}>
-                Equip your sales team today — free for 14 days
+                Equip your sales team today — free for 7 days
               </h2>
               <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
                 No credit card. Full access. Cancel anytime.

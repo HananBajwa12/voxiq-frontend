@@ -1,3 +1,4 @@
+import BrandLogo from '../components/BrandLogo';
 import { useState } from 'react';
 import { useSearchParams, Link, useNavigate } from 'react-router-dom';
 import { getToken } from '../lib/auth';
@@ -113,7 +114,7 @@ export default function Checkout() {
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '48px' }}>
           <Link to="/">
-            <img src="/logo.png" alt="Voxiq" style={{ height: '36px' }} />
+            <BrandLogo style={{ height: '36px' }} />
           </Link>
           <Link
             to="/#pricing"

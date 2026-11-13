@@ -169,7 +169,7 @@ export default function CallRecording() {
               lineHeight: '1.6',
               fontFamily: "'Plus Jakarta Sans', sans-serif"
             }}>
-              Voxiq records every call automatically. Managers use recordings for coaching. Reps use them to remember exactly what was said.
+              Automatic call recording and playback are included on Growth and Scale. Managers use recordings for coaching. Reps use them to remember exactly what was said.
             </p>
 
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'flex-start', marginBottom: '60px' }}>
@@ -254,7 +254,7 @@ export default function CallRecording() {
                 {
                   icon: <ShieldCheck size={24} color={C.oceanMid} />,
                   title: 'Automatic Recording',
-                  desc: 'Every call is recorded without reps needing to press a button.'
+                  desc: 'When call recording is enabled, reps can place and receive calls without manually starting a recording.'
                 },
                 {
                   icon: <Mic size={24} color={C.oceanMid} />,

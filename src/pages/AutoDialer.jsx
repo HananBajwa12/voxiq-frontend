@@ -341,13 +341,13 @@ export default function AutoDialer() {
             <h2 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 'clamp(1.8rem,4vw,3rem)', fontWeight: 700, color: C.white, letterSpacing: '-.03em', margin: '0 0 14px' }}>
               300 calls a day. Starting now.
             </h2>
-            <p style={{ fontSize: '1rem', color: 'rgba(127,205,255,.4)', maxWidth: '400px', margin: '0 auto 28px' }}>14-day free trial. No credit card. Cancel anytime.</p>
+            <p style={{ fontSize: '1rem', color: 'rgba(127,205,255,.4)', maxWidth: '400px', margin: '0 auto 28px' }}>7-day free trial. No credit card. Cancel anytime.</p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '20px' }}>
               <Link to="/signup" style={{ textDecoration: 'none', fontWeight: 800, fontSize: '15px', padding: '13px 30px', borderRadius: '12px', display: 'inline-block', background: `linear-gradient(135deg,${C.breeze},#5BB8F5)`, color: C.midnight, boxShadow: '0 0 28px rgba(127,205,255,.28)' }}>Start Free Trial</Link>
               <button onClick={() => navigate('/how-it-works')} style={{ background: 'transparent', border: '1px solid rgba(127,205,255,.2)', color: C.breeze, fontSize: '15px', padding: '13px 24px', borderRadius: '12px', cursor: 'pointer' }}>See How It Works</button>
             </div>
             <div style={{ display: 'flex', gap: '18px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              {['✓ No credit card', '✓ 14-day free trial', '✓ Cancel anytime'].map((t, i) => (
+              {['✓ No credit card', '✓ 7-day free trial', '✓ Cancel anytime'].map((t, i) => (
                 <span key={i} style={{ fontSize: '12px', color: 'rgba(127,205,255,.35)', fontWeight: 500 }}>{t}</span>
               ))}
             </div>

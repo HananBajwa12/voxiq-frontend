@@ -448,11 +448,11 @@ export default function SmallBusiness() {
                     Never let a missed call become a lost customer
                   </h2>
                   <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.7', marginBottom: '24px' }}>
-                    Every missed call automatically triggers a follow-up text, so customers know you'll be right with them — even if you're mid-job or with another client.
+                    When SMS and missed-call text-back are enabled, Voxiq can send an automatic reply after a missed call.
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {[
-                      'Automatic missed-call text-back',
+                      'Missed-call text-back with SMS enabled',
                       'Simple call routing to any team member',
                       'Voicemail transcription sent to your inbox',
                       'Two-way SMS from your business number',
@@ -566,7 +566,7 @@ export default function SmallBusiness() {
               overflow: 'hidden'
             }}>
               <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 700, color: C.white, marginBottom: '16px', letterSpacing: '-0.02em' }}>
-                Get enterprise calling power today — free for 14 days
+                Get enterprise calling power today — free for 7 days
               </h2>
               <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
                 No credit card. No setup fees. Cancel anytime.

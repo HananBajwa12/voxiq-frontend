@@ -1,0 +1,52 @@
+.integrations-page .integration-cards-grid > * {
+  min-width: 0;
+}
+.integrations-page .integration-simple-card {
+  scroll-margin-top: 130px;
+  background: #FFFFFF;
+  border: 1px solid rgba(10, 37, 64, .08);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+.integrations-page .integration-setup-panel {
+  background: #DFF7FF;
+  border: 1px solid rgba(127, 205, 255, .3);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 24px;
+  font-size: .82rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #0A2540;
+}
+.integrations-page .integration-sales-link:hover {
+  color: #0A2540 !important;
+}
+.integrations-page .integration-sales-link:focus-visible {
+  outline: 2px solid #0D3B6E;
+  outline-offset: 4px;
+}
+@media (max-width: 767px) {
+  .integrations-page .integrations-hero-copy {
+    max-width: 100% !important;
+  }
+  .integrations-page .integrations-hero-actions,
+  .integrations-page .integration-featured-actions {
+    flex-wrap: wrap;
+  }
+  .integrations-page .integration-featured-card {
+    padding: 24px !important;
+  }
+  .integrations-page .integration-cards-grid,
+  .integrations-page .features-checklist-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .integrations-page .integrations-bottom-section {
+    padding-bottom: 240px !important;
+  }
+}

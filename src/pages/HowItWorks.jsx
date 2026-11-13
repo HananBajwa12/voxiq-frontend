@@ -229,7 +229,7 @@ export default function HowItWorks() {
                 </div>
                 <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: C.oceanDeep, marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Link CRM</h3>
                 <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', maxWidth: '320px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                  Connect Pipedrive natively. Voxiq automatically syncs your lists, fields, and owners.
+                  Connect GoHighLevel to sync contacts and update your pipeline based on call outcomes.
                 </p>
               </div>
 
@@ -895,7 +895,7 @@ export default function HowItWorks() {
               zIndex: 1,
               fontFamily: "'Plus Jakarta Sans', sans-serif"
             }}>
-              Set up Voxiq in under 10 minutes and start your 14-day free trial. No credit card required.
+              Set up Voxiq in under 10 minutes and start your 7-day free trial. No credit card required.
             </p>
 
             <div style={{ position: 'relative', zIndex: 1, display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }} className="how-cta-actions">

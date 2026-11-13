@@ -1004,7 +1004,7 @@ export default function InboundCalls() {
                 fontSize: '1.1rem', color: 'rgba(127,205,255,.5)',
                 marginBottom: '36px', maxWidth: '480px', margin: '0 auto 36px',
               }}>
-                14-day free trial. No credit card required. Full access from day one.
+                7-day free trial. No credit card required. Full access from day one.
               </p>
 
               <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '28px' }}>
@@ -1031,7 +1031,7 @@ export default function InboundCalls() {
 
               {/* Trust signals */}
               <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                {['✓ No credit card', '✓ 14-day free trial', '✓ Cancel anytime'].map((t, i) => (
+                {['✓ No credit card', '✓ 7-day free trial', '✓ Cancel anytime'].map((t, i) => (
                   <span key={i} style={{ fontSize: '12px', color: 'rgba(127,205,255,.4)', fontWeight: 500 }}>{t}</span>
                 ))}
               </div>

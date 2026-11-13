@@ -216,7 +216,7 @@ function TestimonialCard({ quote, badge, name, role, initials, delay }) {
         <p style={{ fontSize: '15px', color: '#0A2540', lineHeight: 1.75, fontStyle: 'italic', marginBottom: '16px', flex: 1 }}>{quote}</p>
         <div style={{ background: '#DFF7FF', color: '#0D3B6E', fontSize: '11px', fontWeight: 700, padding: '4px 12px', borderRadius: '20px', display: 'inline-block', marginBottom: '16px', alignSelf: 'flex-start' }}>{badge}</div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'linear-gradient(135deg, #7FCDFF, #0A2540)', color: 'white', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{initials}</div>
+          <div style={{ width: 40, height: 40, borderRadius: '50%', background: '#0D3B6E', border: '1px solid rgba(127,205,255,0.2)', boxShadow: '0 10px 20px rgba(10,37,64,0.25)', color: 'white', fontWeight: 700, fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{initials}</div>
           <div>
             <div style={{ fontWeight: 700, fontSize: '14px', color: '#0A2540' }}>{name}</div>
             <div style={{ fontSize: '12px', color: '#6B9AB8', marginTop: '1px' }}>{role}</div>
@@ -281,7 +281,7 @@ const TABS = [
     id: 'messaging', label: 'Messaging', icon: <MessageSquare size={14} />,
     tag: 'MESSAGING', tagBg: '#FFF8E7', tagColor: '#92400E',
     title: 'SMS + WhatsApp. One unified inbox.',
-    desc: 'Follow up on every call with a text or WhatsApp message — automatically or manually triggered.',
+    desc: 'Send follow-up messages when SMS or WhatsApp is enabled for your account.',
     bullets: ['Two-way SMS with full conversation history', 'WhatsApp Business API integration', 'Auto follow-up sequences after missed calls', 'Shared team inbox with assignment rules', 'Canned reply templates for fast responses'],
     mockup: (
       <div style={{ padding: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -319,7 +319,7 @@ const TABS = [
       <div style={{ padding: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16, paddingBottom: 12, borderBottom: '1px solid rgba(127,205,255,0.1)' }}>
           <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#00E5A0', display: 'inline-block', animation: 'pulse-dot 1.5s infinite' }} />
-          <span style={{ color: '#00E5A0', fontSize: 10, fontWeight: 600, letterSpacing: '0.1em' }}>AI AGENT LIVE</span>
+          <span style={{ color: '#00E5A0', fontSize: 10, fontWeight: 600, letterSpacing: '0.1em' }}>AI AGENT EARLY ACCESS</span>
           <span style={{ marginLeft: 'auto', color: '#2D5986', fontFamily: "'Space Grotesk', sans-serif", fontSize: 14, fontWeight: 700 }}>0:47</span>
         </div>
         {[
@@ -526,6 +526,7 @@ export default function Home() {
   const isDesktop = useIsDesktop();
   const [marqueeHovered, setMarqueeHovered] = useState(false);
   const [pricingAnnual, setPricingAnnual] = useState(false);
+  const [seats, setSeats] = useState({ basic: 1, pro: 1, business: 1 });
 
   return (
     <div style={{ background: '#020D1A', minHeight: '100vh', overflowX: 'hidden', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -978,20 +979,20 @@ export default function Home() {
       {/* ================================================================
           SECTION 7 — PRICING
           ================================================================ */}
-      <section style={{ padding: '80px 0', background: '#020D1A' }}>
+      <section style={{ padding: '80px 0', background: '#DFF7FF' }}>
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           <Reveal>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-              <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#F1F5F9', marginBottom: '20px', letterSpacing: '-0.02em', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: '#0D3B6E', marginBottom: '20px', letterSpacing: '-0.02em', fontFamily: "'Space Grotesk', sans-serif" }}>
                 Simple pricing. No surprises.
               </h2>
-              <p style={{ fontSize: '1.1rem', color: '#6B9AB8', maxWidth: '600px', margin: '0 auto', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <p style={{ fontSize: '1.1rem', color: '#0A2540', maxWidth: '600px', margin: '0 auto', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 Start calling for free. Upgrade when you need more power.
               </p>
 
               {/* Billing Toggle */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginTop: '40px' }}>
-                <span style={{ fontSize: '0.95rem', color: !pricingAnnual ? '#FFFFFF' : '#64748B', fontWeight: !pricingAnnual ? 600 : 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Monthly</span>
+                <span style={{ fontSize: '0.95rem', color: !pricingAnnual ? '#0A2540' : '#64748B', fontWeight: !pricingAnnual ? 600 : 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Monthly</span>
                 <button
                   onClick={() => setPricingAnnual(!pricingAnnual)}
                   style={{
@@ -1018,7 +1019,7 @@ export default function Home() {
                     boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
                   }} />
                 </button>
-                <span style={{ fontSize: '0.95rem', color: pricingAnnual ? '#FFFFFF' : '#64748B', fontWeight: pricingAnnual ? 600 : 500, fontFamily: "'Plus Jakarta Sans', sans-serif", display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '0.95rem', color: pricingAnnual ? '#0A2540' : '#64748B', fontWeight: pricingAnnual ? 600 : 500, fontFamily: "'Plus Jakarta Sans', sans-serif", display: 'flex', alignItems: 'center', gap: '8px' }}>
                   Annually
                   <span style={{
                     background: 'rgba(16, 185, 129, 0.1)',
@@ -1116,11 +1117,11 @@ export default function Home() {
             ].map((plan, i) => {
               const isPopular = plan.popular;
               const isCustom = plan.monthlyPrice === undefined;
-              const isAnnual = typeof pricingAnnual !== 'undefined' ? pricingAnnual : (typeof billingCycle !== 'undefined' ? billingCycle === 'annual' : false);
+              const isAnnual = pricingAnnual;
               let displayPriceTop = 'Talk to Sales';
               let priceSuffix = '';
               let displaySubtext = '';
-              const planSeats = typeof seats !== 'undefined' ? (seats[plan.id] || 1) : 1;
+              const planSeats = seats[plan.id] ?? 1;
 
               if (!isCustom) {
                 if (isAnnual) {
@@ -1215,10 +1216,10 @@ export default function Home() {
                     {!isCustom ? (
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', padding: '6px 0px', borderRadius: '8px', marginBottom: '24px', border: 'none' }}>
                         <span style={{ fontSize: '0.85rem', color: isPopular ? 'rgba(223,247,255,0.9)' : '#475569', fontWeight: 600 }}>Seats</span>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: isPopular ? 'rgba(255,255,255,0.1)' : '#F1F5F9', padding: '6px 12px', borderRadius: '6px', border: isPopular ? '1px solid rgba(255,255,255,0.2)' : '1px solid #E2E8F0' }}>
-                          <span style={{ fontSize: '1rem', cursor: 'pointer', color: isPopular ? '#FFFFFF' : '#0A2540', padding: '0 4px', userSelect: 'none' }} onClick={() => planSeats > 1 && setSeats(prev => ({ ...prev, [plan.id]: prev[plan.id] - 1 }))}>-</span>
-                          <span style={{ fontSize: '0.9rem', fontWeight: 700, color: isPopular ? '#FFFFFF' : '#0A2540', minWidth: '16px', textAlign: 'center' }}>{planSeats}</span>
-                          <span style={{ fontSize: '1rem', cursor: 'pointer', color: isPopular ? '#FFFFFF' : '#0A2540', padding: '0 4px', userSelect: 'none' }} onClick={() => setSeats(prev => ({ ...prev, [plan.id]: prev[plan.id] + 1 }))}>+</span>
+                        <div role="group" aria-label={`${plan.name} seats`} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: isPopular ? 'rgba(255,255,255,0.1)' : '#F1F5F9', padding: '6px 12px', borderRadius: '6px', border: isPopular ? '1px solid rgba(255,255,255,0.2)' : '1px solid #E2E8F0' }}>
+                          <button type="button" aria-label={`Decrease seats for ${plan.name}`} disabled={planSeats <= 1} style={{ fontSize: '1rem', fontFamily: 'inherit', lineHeight: 'inherit', border: 0, background: 'transparent', cursor: planSeats > 1 ? 'pointer' : 'not-allowed', color: isPopular ? '#FFFFFF' : '#0A2540', padding: '0 4px', userSelect: 'none' }} onClick={() => setSeats(prev => ({ ...prev, [plan.id]: Math.max(1, (prev[plan.id] ?? 1) - 1) }))}>-</button>
+                          <span aria-live="polite" aria-atomic="true" style={{ fontSize: '0.9rem', fontWeight: 700, color: isPopular ? '#FFFFFF' : '#0A2540', minWidth: '16px', textAlign: 'center' }}>{planSeats}</span>
+                          <button type="button" aria-label={`Increase seats for ${plan.name}`} style={{ fontSize: '1rem', fontFamily: 'inherit', lineHeight: 'inherit', border: 0, background: 'transparent', cursor: 'pointer', color: isPopular ? '#FFFFFF' : '#0A2540', padding: '0 4px', userSelect: 'none' }} onClick={() => setSeats(prev => ({ ...prev, [plan.id]: (prev[plan.id] ?? 1) + 1 }))}>+</button>
                         </div>
                       </div>
                     ) : (
@@ -1247,7 +1248,7 @@ export default function Home() {
                   </div>
 
                   <button
-                    onClick={() => { typeof navigate !== 'undefined' ? navigate('/signup?plan=' + plan.id) : window.location.href = '/signup?plan=' + plan.id }}
+                    onClick={() => navigate(`/signup?plan=${encodeURIComponent(plan.name)}&seats=${planSeats}&billing=${isAnnual ? 'annual' : 'monthly'}`)}
                     style={{
                       width: '100%',
                       background: isPopular ? 'rgb(223, 247, 255)' : 'rgb(223, 247, 255)',
@@ -1298,7 +1299,7 @@ export default function Home() {
 
       {/* SECTION 8 — TESTIMONIALS (background: rgb(223,247,255))
           ================================================================ */}
-      <section style={{ background: 'linear-gradient(135deg, rgb(13, 59, 110) 0%, rgb(26, 79, 160) 50%, rgb(15, 76, 138) 100%)', padding: isDesktop ? '100px 80px 140px' : '64px 24px 120px' }}>
+      <section id="testimonials" style={{ background: 'linear-gradient(135deg, rgb(13, 59, 110) 0%, rgb(26, 79, 160) 50%, rgb(15, 76, 138) 100%)', padding: isDesktop ? '100px 80px 140px' : '64px 24px 240px' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <p style={{ color: 'rgba(127,205,255,0.7)', fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 12 }}>LOVED BY SALES LEADERS</p>

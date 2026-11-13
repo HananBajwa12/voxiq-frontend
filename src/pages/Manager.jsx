@@ -5,6 +5,7 @@ import { API_URL } from '../config/env';
 import { fetchJson } from '../lib/api';
 import { clearToken } from '../lib/auth';
 import StateMap from '../components/StateMap';
+import BrandLogo from '../components/BrandLogo';
 
 export default function Manager() {
     const navigate = useNavigate();
@@ -96,7 +97,7 @@ export default function Manager() {
             <aside className="sidebar" style={{ display: 'flex', flexDirection: 'column', minHeight: 0 }}>
                 {/* Logo */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem', flexShrink: 0 }}>
-                    <div style={{ width: 36, height: 36, background: 'var(--grad-brand)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 800, fontSize: '1rem', flexShrink: 0 }}>W</div>
+                    <BrandLogo compact style={{ height: 36 }} />
                     <span style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 800, fontSize: '1.1rem', color: 'var(--brand-dark)' }}>Manager Hub</span>
                 </div>
                 {/* Nav */}

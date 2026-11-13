@@ -1,3 +1,4 @@
+import BrandLogo from '../components/BrandLogo';
 import { useState, useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { API_URL } from '../config/env';
@@ -228,7 +229,7 @@ export default function Signup() {
             <div className="auth-page" style={{ padding: '80px 16px 40px', alignItems: 'flex-start' }}>
                 <div className="signup-step-container" style={{ maxWidth: '1150px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-                        <img src="/logo.png" alt="Voxiq" style={{ height: '36px' }} />
+                        <BrandLogo style={{ height: '36px' }} />
                         <div style={{ maxWidth: 360, flex: 1, marginLeft: 32 }}><StepBar step="pricing" /></div>
                     </div>
                     <h2 style={{ textAlign: 'center', marginBottom: '6px', fontSize: '1.5rem' }}>Choose Your Plan</h2>
@@ -280,7 +281,7 @@ export default function Signup() {
             <div className="auth-page" style={{ padding: '80px 16px 40px', alignItems: 'flex-start' }}>
                 <div className="signup-step-container" style={{ maxWidth: '960px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-                        <img src="/logo.png" alt="Voxiq" style={{ height: '36px' }} />
+                        <BrandLogo style={{ height: '36px' }} />
                         <div style={{ maxWidth: 480, flex: 1, marginLeft: 32 }}><StepBar step="checkout" /></div>
                     </div>
                     <h2 style={{ textAlign: 'center', marginBottom: '6px', fontSize: '1.5rem', color: '#F1F5F9' }}>Review Your Order</h2>
@@ -452,7 +453,7 @@ export default function Signup() {
 
                 <div className="auth-right">
                     <div className="auth-logo-box">
-                        <img src="/logo.png" alt="Voxiq" style={{ height: '44px' }} />
+                        <BrandLogo style={{ height: '44px' }} />
                     </div>
                     <h1>Company Registration</h1>
                     <StepBar step={signupStep} />

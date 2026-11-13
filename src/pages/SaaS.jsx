@@ -386,7 +386,7 @@ export default function SaaS() {
                       'Qualifies ICP fit with your questions',
                       'Books demo to rep\'s calendar',
                       'Hands off to human rep when warm',
-                      'Full conversation summary to Slack/CRM'
+                      'Ask about AI Agent early access'
                     ].map((item, idx) => (
                       <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <Check size={16} color={C.liveGreen} style={{ flexShrink: 0 }} />
@@ -430,34 +430,33 @@ export default function SaaS() {
                   order: 0
                 }} className="deep-dive-order-override">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px', color: C.breeze, fontSize: '13px', fontWeight: 600 }}>
-                    <Database size={16} /> CRM Logging Active
+                    <Database size={16} /> CRM Connection
                   </div>
                   <div style={{ background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', borderRadius: '10px', padding: '16px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                      <span style={{ fontSize: '12px', fontWeight: 600, color: C.breezeLight }}>CRM Contact Feed</span>
-                      <span style={{ fontSize: '11px', color: C.liveGreen }}>Synced</span>
+                      <span style={{ fontSize: '12px', fontWeight: 600, color: C.breezeLight }}>GoHighLevel</span>
+                      <span style={{ fontSize: '11px', color: C.liveGreen }}>When connected</span>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '12px', color: 'rgba(127,205,255,.65)' }}>
-                      <div>• Call duration: 4m 12s</div>
-                      <div>• Outcome: Meeting Booked</div>
-                      <div>• Recording: audio_timeline_link.wav</div>
+                      <div>• Contact sync</div>
+                      <div>• Call outcome triggers</div>
+                      <div>• Pipeline updates</div>
                     </div>
                   </div>
                 </div>
                 <div>
                   <h2 style={{ fontSize: '2.25rem', fontWeight: 700, color: C.breezeLight, marginBottom: '20px', lineHeight: '1.2', letterSpacing: '-0.02em' }}>
-                    Zero admin. Every call logged automatically.
+                    Call activity logging with GoHighLevel
                   </h2>
                   <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.7', marginBottom: '24px' }}>
-                    Your SDRs should be selling — not doing data entry. Every Voxiq call logs automatically to Pipedrive: duration, outcome, notes, recording, and next steps. Sequences update. Pipeline moves. All without your rep touching a keyboard.
+                    Log call activity to GoHighLevel when the integration is connected.
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {[
-                      'Auto-log to Pipedrive',
-                      'Voicemail drop in 2 seconds',
-                      'SMS follow-up sent automatically',
-                      'Sequence status updates on outcomes',
-                      'Rep saves 3 hours of admin per day'
+                      'Call activity logging with GoHighLevel',
+                      'Contact sync with GoHighLevel',
+                      'Call outcome triggers',
+                      'Pipeline updates when connected'
                     ].map((item, idx) => (
                       <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <Check size={16} color={C.liveGreen} style={{ flexShrink: 0 }} />
@@ -530,23 +529,6 @@ export default function SaaS() {
         </section>
       </FadeInSection>
 
-      {/* 7. INTEGRATIONS */}
-      <section style={{ padding: '80px 0', background: C.foam }}>
-        <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', textAlign: 'center' }}>
-          <h4 style={{ fontSize: '11px', fontWeight: 700, color: C.textMuted, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '32px' }}>
-            Integrates natively with your SaaS stack
-          </h4>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '40px', flexWrap: 'wrap', marginBottom: '32px', opacity: 0.85 }}>
-            {['Pipedrive', 'Outreach', 'Salesloft'].map((stack, i) => (
-              <span key={i} style={{ fontSize: '18px', fontWeight: 700, color: C.textMid }}>{stack}</span>
-            ))}
-          </div>
-          <p style={{ fontSize: '14px', color: C.textMid, maxWidth: '560px', margin: '0 auto' }}>
-            Log dial outcomes, trigger Slack notifications, and sync contacts seamlessly.
-          </p>
-        </div>
-      </section>
-
       {/* 8. BOTTOM CTA */}
       <FadeInSection>
         <section style={{
@@ -567,7 +549,7 @@ export default function SaaS() {
               overflow: 'hidden'
             }}>
               <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 700, color: C.white, marginBottom: '16px', letterSpacing: '-0.02em' }}>
-                Book more demos this week — free for 14 days
+                Book more demos this week — free for 7 days
               </h2>
               <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
                 No credit card. Full access. Cancel anytime.

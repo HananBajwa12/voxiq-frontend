@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import BrandLogo from './BrandLogo';
 
 // Custom inline SVG icons
 const Twitter = ({ size = 18 }) => (
@@ -74,7 +75,7 @@ export default function Footer({ noCta = false }) {
                                 Start closing more deals with Voxiq
                             </h3>
                             <p style={{ color: 'rgba(127,205,255,0.7)', fontSize: '14px', margin: '6px 0 0 0' }}>
-                                14-day free trial · No credit card required · Cancel anytime
+                                7-day free trial · No credit card required · Cancel anytime
                             </p>
                         </div>
                         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
@@ -134,24 +135,7 @@ export default function Footer({ noCta = false }) {
                     {/* Col 1: Brand */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '9px' }}>
-                            <div style={{
-                                width: '30px',
-                                height: '30px',
-                                borderRadius: '7px',
-                                background: '#0D3B6E',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                color: '#FFFFFF',
-                                fontWeight: 900,
-                                fontSize: '1rem',
-                                letterSpacing: '-0.03em',
-                            }}>
-                                V
-                            </div>
-                            <span style={{ fontWeight: 800, fontSize: '1.3rem', color: '#0A2540', letterSpacing: '-0.03em', fontFamily: "'Space Grotesk', sans-serif" }}>
-                                Voxiq
-                            </span>
+                            <BrandLogo style={{ height: 40 }} />
                         </Link>
                         <p style={{ fontSize: '14px', lineHeight: '1.7', color: '#64748B', margin: 0, maxWidth: '230px' }}>
                             The power dialer built for serious sales teams. Call more, close more.
@@ -204,7 +188,7 @@ export default function Footer({ noCta = false }) {
                         <h4 style={{ fontSize: '11px', fontWeight: 700, color: '#0A2540', textTransform: 'uppercase', letterSpacing: '0.1em', margin: 0 }}>Integrations</h4>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
                             <li><Link to="/integrations" className="footer-link-v">GoHighLevel (GHL)</Link></li>
-                            <li><Link to="/integrations" className="footer-link-v">Zapier</Link></li>
+                            <li><Link to="/integrations#zapier" className="footer-link-v">Zapier</Link></li>
                             <li><Link to="/integrations" className="footer-link-v">View All Integrations</Link></li>
                         </ul>
                         <h4 style={{ fontSize: '11px', fontWeight: 700, color: '#0A2540', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '16px 0 0 0' }}>Plans</h4>
@@ -224,6 +208,8 @@ export default function Footer({ noCta = false }) {
                             <li><Link to="/solutions/real-estate" className="footer-link-v">Real Estate</Link></li>
                             <li><Link to="/solutions/insurance" className="footer-link-v">Insurance Agencies</Link></li>
                             <li><Link to="/solutions/saas" className="footer-link-v">SaaS Companies</Link></li>
+                            <li><Link to="/solutions/collections" className="footer-link-v">Collections</Link></li>
+                            <li><Link to="/solutions/bpo" className="footer-link-v">BPO &amp; Call Centers</Link></li>
                             <li><Link to="/solutions/ghl-agencies" className="footer-link-v">GHL Agencies</Link></li>
                             <li><Link to="/solutions/enterprise" className="footer-link-v">Enterprise Dialer</Link></li>
                         </ul>
