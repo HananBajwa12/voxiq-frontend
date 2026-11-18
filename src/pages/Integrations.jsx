@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import useHashScroll from '../hooks/useHashScroll';
+import './Integrations.css';
 import { 
   CheckCircle2, 
   ArrowRight, 
@@ -33,6 +35,24 @@ const C = {
   purple: '#7C6DFA',
   warn: '#F59E0B',
 };
+
+const availabilityIntegrations = [
+  {
+    id: 'salesforce',
+    name: 'Salesforce',
+    description: 'An AI-powered CRM for managing customer records, sales pipelines, and customer service.',
+  },
+  {
+    id: 'hubspot',
+    name: 'HubSpot',
+    description: 'A CRM platform that brings marketing automation, sales tools, and customer service together.',
+  },
+  {
+    id: 'outreach',
+    name: 'Outreach',
+    description: 'An AI-powered sales platform that helps teams find prospects, follow up, and manage deals.',
+  },
+];
 
 const CARD_HOVER_CSS = `
   .ib-card-hover {
@@ -92,9 +112,11 @@ function FadeInSection({ children }) {
 
 export default function Integrations() {
   const navigate = useNavigate();
+  const [showGhlSetup, setShowGhlSetup] = useState(false);
+  useHashScroll();
 
   return (
-    <div style={{ background: '#020D1A', minHeight: '100vh', overflowX: 'hidden' }}>
+    <div className="integrations-page" style={{ background: '#020D1A', minHeight: '100vh', overflowX: 'hidden' }}>
       <InjectCardHoverStyles />
 
       {/* 1. Hero */}
@@ -134,7 +156,7 @@ export default function Integrations() {
         }} />
 
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 10, width: '100%' }}>
-          <div style={{ maxWidth: '58%', textAlign: 'left' }}>
+          <div className="integrations-hero-copy" style={{ maxWidth: '58%', textAlign: 'left' }}>
             
             <span style={{
               color: '#7FCDFF',
@@ -169,10 +191,10 @@ export default function Integrations() {
               lineHeight: '1.6',
               fontFamily: "'Plus Jakarta Sans', sans-serif"
             }}>
-              Voxiq integrates natively with top CRMs, email systems, and marketing automation tools. Set up workflows in minutes with no code.
+              Connect GoHighLevel directly or use Zapier to automate workflows with other tools.
             </p>
 
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'flex-start', marginBottom: '60px' }}>
+            <div className="integrations-hero-actions" style={{ display: 'flex', gap: '16px', justifyContent: 'flex-start', marginBottom: '60px' }}>
               <Link
                 to="/signup"
                 style={{
@@ -220,7 +242,7 @@ export default function Integrations() {
       <FadeInSection>
         <section style={{ padding: '40px 0 80px', background: C.breezeLight }}>
           <div className="container" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 2rem' }}>
-            <div style={{
+            <div className="integration-featured-card" style={{
               background: C.white,
               border: `2px solid ${C.breeze}`,
               borderRadius: '24px',
@@ -261,20 +283,18 @@ export default function Integrations() {
                 GoHighLevel
               </h2>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: C.textMid, margin: '0 0 16px 0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                The most powerful GHL + dialer integration
+                Connect your GoHighLevel calling workflow
               </h3>
 
               <p style={{ fontSize: '1.05rem', color: C.textMid, lineHeight: '1.6', marginBottom: '32px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                Built for GHL users and agencies. 2-way contact sync, workflow triggers on call outcomes, pipeline stage updates, and conversation logs directly in GHL contacts.
+                Connect Voxiq to GoHighLevel for contact sync, call outcome triggers, and pipeline updates.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '40px' }} className="features-checklist-grid">
                 {[
-                  '2-way contact sync',
-                  'Trigger GHL workflows on call outcomes',
-                  'Auto-update pipeline stages after calls',
-                  'SMS and WhatsApp logs in GHL contact timeline',
-                  'AI Agent integrates with GHL automation'
+                  'Contact sync',
+                  'Call outcome triggers',
+                  'Pipeline updates when connected'
                 ].map((item, idx) => (
                   <div key={idx} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
                     <CheckCircle2 size={18} color={C.liveGreen} style={{ flexShrink: 0, marginTop: '2px' }} />
@@ -283,8 +303,9 @@ export default function Integrations() {
                 ))}
               </div>
 
-              <div style={{ display: 'flex', gap: '12px' }}>
+              <div className="integration-featured-actions" style={{ display: 'flex', gap: '12px' }}>
                 <button
+                  onClick={() => navigate('/admin')}
                   style={{
                     background: `linear-gradient(135deg, ${C.breeze}, #5BB8F5)`,
                     color: C.midnight,
@@ -298,6 +319,9 @@ export default function Integrations() {
                   Connect GHL
                 </button>
                 <button
+                  onClick={() => setShowGhlSetup(value => !value)}
+                  aria-expanded={showGhlSetup}
+                  aria-controls="ghl-setup-guide"
                   style={{
                     background: C.white, color: C.textDark,
                     border: '1px solid rgba(10,37,64,.15)',
@@ -310,69 +334,60 @@ export default function Integrations() {
                   View setup guide
                 </button>
               </div>
+              {showGhlSetup && (
+                <p id="ghl-setup-guide" style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', margin: '24px 0 0' }}>
+                  Sign in as an admin, open Integrations in the admin dashboard, and save your GoHighLevel API key to connect your account.
+                </p>
+              )}
 
             </div>
           </div>
         </section>
       </FadeInSection>
 
-      {/* 3. Integration Cards Grid (2 columns) */}
+      {/* 3. Workflow automation and integration availability */}
       <FadeInSection>
         <section style={{ padding: '80px 0', background: C.cream }}>
           <div className="container" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 2rem' }}>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
+              gridTemplateColumns: 'minmax(0, 1fr)',
               gap: '30px'
-            }} className="related-grid">
+            }} className="related-grid integration-cards-grid">
 
               {/* Zapier */}
-              <div className="ib-card-hover" style={{
-                background: C.white,
-                border: '1px solid rgba(10,37,64,.08)',
-                borderRadius: '16px',
-                padding: '32px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between'
-              }}>
+              <div id="zapier" className="ib-card-hover integration-simple-card">
                 <div>
                   <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: C.textDark, marginBottom: '16px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Zapier</h4>
                   <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', margin: '0 0 20px 0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                    Connect Voxiq to 5,000+ apps with no code. Trigger zaps on calls, SMS, voicemails, and more.
+                    Workflow automation via Zapier.
                   </p>
-                  <div style={{ background: C.breezeLight, border: '1px solid rgba(127,205,255,.3)', borderRadius: '8px', padding: '12px', marginBottom: '24px', fontSize: '0.82rem', display: 'flex', flexDirection: 'column', gap: '8px', color: C.textDark }}>
-                    <div style={{ fontWeight: 600 }}>Popular Zaps:</div>
-                    <div>⚡ "New call → Add to spreadsheet"</div>
-                    <div>⚡ "Missed call → Slack notification"</div>
+                  <div className="integration-setup-panel">
+                    <div style={{ fontWeight: 600 }}>Connect via webhooks</div>
+                    <div>Add your Zapier webhook URL under Integrations in the Voxiq admin dashboard to configure workflows based on call outcomes.</div>
                   </div>
                 </div>
-                <button style={{ background: C.white, border: `1px solid ${C.breeze}`, color: C.oceanMid, borderRadius: '8px', padding: '10px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>
-                  View Zapier integration
-                </button>
               </div>
 
-
-              {/* Pipedrive */}
-              <div className="ib-card-hover" style={{
-                background: C.white,
-                border: '1px solid rgba(10,37,64,.08)',
-                borderRadius: '16px',
-                padding: '32px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between'
-              }}>
-                <div>
-                  <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: C.textDark, marginBottom: '16px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Pipedrive</h4>
-                  <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', margin: '0 0 24px 0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                    Call outcomes trigger deal stage changes in Pipedrive. Log activities and notes automatically.
-                  </p>
-                </div>
-                <button style={{ background: C.white, border: `1px solid ${C.breeze}`, color: C.oceanMid, borderRadius: '8px', padding: '10px', fontSize: '0.85rem', fontWeight: 700, cursor: 'pointer' }}>
-                  View Pipedrive integration
-                </button>
-              </div>
+              {availabilityIntegrations.map(integration => (
+                <article
+                  key={integration.id}
+                  id={integration.id}
+                  aria-labelledby={`${integration.id}-heading`}
+                  className="ib-card-hover integration-simple-card integration-availability-card"
+                >
+                  <div>
+                    <h4 id={`${integration.id}-heading`} style={{ fontSize: '1.25rem', fontWeight: 800, color: C.textDark, marginBottom: '16px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{integration.name}</h4>
+                    <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', margin: '0 0 20px 0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{integration.description}</p>
+                    <div className="integration-setup-panel integration-availability-panel">
+                      <div style={{ fontWeight: 600 }}>Ask about availability</div>
+                      <a className="integration-sales-link" href="mailto:sales@voxiq.com" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', alignSelf: 'flex-start', color: C.oceanMid, fontWeight: 600, textDecoration: 'underline' }}>
+                        Talk to Sales <ArrowUpRight size={14} aria-hidden="true" />
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              ))}
 
             </div>
           </div>
@@ -381,7 +396,7 @@ export default function Integrations() {
 
       {/* 4. Bottom Section */}
       <FadeInSection>
-        <section style={{
+        <section className="integrations-bottom-section" style={{
           padding: '100px 0 160px',
           textAlign: 'center',
           background: `linear-gradient(135deg, ${C.oceanDeep} 0%, ${C.oceanMid} 50%, ${C.oceanDeep} 100%)`,

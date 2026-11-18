@@ -377,16 +377,15 @@ export default function GHLAgencies() {
                     Everything your GHL clients need — in one place
                   </h2>
                   <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.7', marginBottom: '24px' }}>
-                    Inbound calls, outbound power dialing, SMS, WhatsApp, AI Agent Caller, and analytics — all natively synced with GHL. Every call outcome updates the GHL contact. Every workflow trigger fires correctly. No data loss. No missed follow-ups.
+                    Connect Voxiq to GoHighLevel for contact sync, call outcome triggers, and pipeline updates. Ask about messaging availability and AI Agent early access.
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {[
                       '2-way contact sync with GHL',
                       'Call outcomes trigger GHL workflows',
                       'Pipeline stage updates after calls',
-                      'SMS & WhatsApp logs in GHL timeline',
-                      'AI Agent integrates with GHL automations',
-                      'Appointment booking to GHL calendar'
+                      'Ask about messaging availability',
+                      'AI Agent early access'
                     ].map((item, idx) => (
                       <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                         <Check size={16} color={C.liveGreen} style={{ flexShrink: 0 }} />
@@ -450,7 +449,7 @@ export default function GHLAgencies() {
                     Build a recurring revenue stream for your agency
                   </h2>
                   <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.7', marginBottom: '24px' }}>
-                    Add Voxiq to your agency\'s SaaS stack. White-label it under your brand. Charge your clients $X/month per seat and pay Voxiq wholesale pricing. Most agencies charge $97-197/seat and keep the margin. With 10 clients each running 5 seats, that\'s a predictable $5,000-10,000 MRR from one tool.
+                    Add Voxiq to your agency’s SaaS offering under your own brand. Contact us for wholesale seat pricing and reseller terms.
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
                     {[
@@ -627,7 +626,7 @@ export default function GHLAgencies() {
               overflow: 'hidden'
             }}>
               <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 700, color: C.white, marginBottom: '16px', letterSpacing: '-0.02em' }}>
-                Ready to launch your own branded dialer? — free for 14 days
+                Ready to launch your own branded dialer? — free for 7 days
               </h2>
               <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
                 Set up your white-label agency portal in under 10 minutes.

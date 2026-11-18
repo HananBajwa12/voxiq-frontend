@@ -306,7 +306,7 @@ export default function WhatsApp() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="steps-container">
               {[
-                { step: '01', title: 'Connect your WhatsApp Business number to Voxiq', desc: 'Sync verification flags directly inside the dashboard panel.' },
+                { step: '01', title: 'Contact sales to confirm WhatsApp availability and pricing for your account.', desc: 'Sync verification flags directly inside the dashboard panel.' },
                 { step: '02', title: 'Message prospects from the Voxiq inbox', desc: 'Compose updates and dispatch document attachments seamlessly.' },
                 { step: '03', title: 'Replies sync alongside your call history', desc: 'Preserve unified timeline logs inside active contact files.' }
               ].map((step, idx) => (
@@ -325,7 +325,7 @@ export default function WhatsApp() {
                     lineHeight: '1',
                     marginBottom: '24px'
                   }}>{step.step}</div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: C.textDark, marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.title}</h3>
+                  <h3 style={{ fontSize: idx === 0 ? '1.125rem' : '1.25rem', fontWeight: 800, color: C.textDark, marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.title}</h3>
                   <p style={{ fontSize: '0.95rem', color: C.textMid, lineHeight: '1.6', margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{step.desc}</p>
                 </div>
               ))}

@@ -66,7 +66,7 @@ function showCallNotification(info) {
     try {
         const n = new Notification('📞 Incoming Call', {
             body: `${info?.callerName && info.callerName !== info?.from ? info.callerName + '\n' : ''}${info?.from || 'Unknown number'}`,
-            icon: '/logo.png',
+            icon: '/logo-icon.svg',
             requireInteraction: true,
             tag: 'voxiq-incoming-call',
             silent: false,

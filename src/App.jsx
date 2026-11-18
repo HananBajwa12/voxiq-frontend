@@ -35,6 +35,7 @@ const RealEstate = lazy(() => import('./pages/RealEstate'))
 const Insurance = lazy(() => import('./pages/Insurance'))
 const SaaS = lazy(() => import('./pages/SaaS'))
 const Collections = lazy(() => import('./pages/Collections'))
+const BPO = lazy(() => import('./pages/BPO'))
 const GHLAgencies = lazy(() => import('./pages/GHLAgencies'))
 const SDRTeams = lazy(() => import('./pages/SDRTeams'))
 const SalesTeams = lazy(() => import('./pages/SalesTeams'))
@@ -125,12 +126,14 @@ function AppRoutes() {
           <Route path="/features/ai-agent" element={<AIAgent />} />
           <Route path="/features/analytics" element={<Analytics />} />
           <Route path="/integrations" element={<Integrations />} />
+          <Route path="/integrations/zapier" element={<Navigate to="/integrations#zapier" replace />} />
           <Route path="/integrations/:id" element={<Integrations />} />
 
           <Route path="/solutions/real-estate" element={<RealEstate />} />
           <Route path="/solutions/insurance" element={<Insurance />} />
           <Route path="/solutions/saas" element={<SaaS />} />
           <Route path="/solutions/collections" element={<Collections />} />
+          <Route path="/solutions/bpo" element={<BPO />} />
           <Route path="/solutions/ghl-agencies" element={<GHLAgencies />} />
           <Route path="/solutions/sdr-teams" element={<SDRTeams />} />
           <Route path="/solutions/sales-teams" element={<SalesTeams />} />
@@ -188,6 +191,7 @@ function App() {
 
 function NavbarWrapper() {
   const location = useLocation();
+  const pathname = location.pathname.replace(/\/+$/, '') || '/';
   const publicPaths = [
     '/', '/login', '/signup', '/pricing', '/features', '/how-it-works',
     '/features/inbound-calls', '/features/outbound-calls', '/features/auto-dialer',
@@ -196,10 +200,10 @@ function NavbarWrapper() {
     '/integrations', '/blog'
   ];
   if (
-    publicPaths.includes(location.pathname) || 
-    location.pathname.startsWith('/integrations/') || 
-    location.pathname.startsWith('/solutions/') ||
-    location.pathname.startsWith('/blog')
+    publicPaths.includes(pathname) ||
+    pathname.startsWith('/integrations/') ||
+    pathname.startsWith('/solutions/') ||
+    pathname.startsWith('/blog')
   ) return <Navbar />;
   return null;
 }

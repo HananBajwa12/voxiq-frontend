@@ -1,3 +1,4 @@
+import BrandLogo from '../components/BrandLogo';
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BarChart3, Building2, ClipboardList, Headphones, LayoutDashboard, LogOut, Phone, WalletCards } from 'lucide-react';
@@ -3035,7 +3036,7 @@ export default function SuperAdmin() {
       <aside style={{ width: isCompactLayout ? '100%' : 200, background: 'linear-gradient(180deg, #0f172a 0%, #111827 100%)', color: '#fff', display: 'flex', flexDirection: 'column', flexShrink: 0, position: isCompactLayout ? 'sticky' : 'relative', top: isCompactLayout ? 0 : 'unset', zIndex: isCompactLayout ? 1100 : 50, height: isCompactLayout ? 'auto' : '100vh', overflowY: isCompactLayout ? 'visible' : 'auto', boxShadow: isCompactLayout ? '0 2px 8px rgba(0,0,0,0.2)' : '2px 0 8px rgba(0,0,0,0.15)' }}>
         <div style={{ padding: isPhone ? '10px 14px 8px' : isCompactLayout ? '16px' : '22px 20px 18px', borderBottom: '1px solid rgba(255,255,255,0.08)', background: isPhone ? '#ffffff' : 'transparent' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '6px 10px', borderRadius: 14, background: 'transparent', marginBottom: 4 }}>
-            <img src="/logo.png" alt="Voxiq" style={{ height: 26 }} />
+            <BrandLogo style={{ height: 26, background: '#fff', borderRadius: 4 }} />
           </div>
           <div style={{ fontSize: 11, fontWeight: 700, color: isPhone ? '#0f172a' : '#6b7280', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Super Admin</div>
         </div>

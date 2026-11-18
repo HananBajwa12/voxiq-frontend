@@ -1,3 +1,4 @@
+import BrandLogo from '../components/BrandLogo';
 import { useMemo, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { API_URL } from '../config/env';
@@ -170,7 +171,7 @@ export default function Login() {
 
                 <div className="auth-right">
                     <div className="auth-logo-box">
-                        <img src="/logo.png" alt="Voxiq" style={{ height: '44px' }} />
+                        <BrandLogo style={{ height: '44px' }} />
                     </div>
                     <h1>{mfaState ? 'Verify MFA' : 'Sign In'}</h1>
                     <p className="auth-subtitle">

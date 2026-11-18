@@ -446,7 +446,7 @@ export default function OutboundCalls() {
               Scale your outbound team today.
             </h2>
             <p style={{ fontSize: '1rem', color: 'rgba(127,205,255,.45)', maxWidth: '440px', margin: '0 auto 32px' }}>
-              14-day free trial. No credit card. Full access from day one.
+              7-day free trial. No credit card. Full access from day one.
             </p>
             <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '24px' }}>
               <Link to="/signup" style={{
@@ -462,7 +462,7 @@ export default function OutboundCalls() {
               }}>See How It Works</button>
             </div>
             <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              {['✓ No credit card', '✓ 14-day free trial', '✓ Cancel anytime'].map((t, i) => (
+              {['✓ No credit card', '✓ 7-day free trial', '✓ Cancel anytime'].map((t, i) => (
                 <span key={i} style={{ fontSize: '12px', color: 'rgba(127,205,255,.38)', fontWeight: 500 }}>{t}</span>
               ))}
             </div>

@@ -186,10 +186,10 @@ export default function Pricing() {
     <div style={{ background: C.midnight, minHeight: '100vh', overflowX: 'hidden' }}>
 
       {/* SECTION 1 — PAGE HEADER */}
-      <section style={{ padding: '100px 0 60px', background: `radial-gradient(circle at 50% -20%, rgba(127, 205, 255, 0.1) 0%, ${C.midnight} 70%), ${C.midnight}`, textAlign: 'center' }}>
+      <section style={{ padding: '100px 0 60px', background: C.breezeLight, textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem' }}>
           <span style={{
-            color: C.breeze,
+            color: C.oceanMid,
             fontSize: '0.85rem',
             fontWeight: 700,
             textTransform: 'uppercase',
@@ -204,7 +204,7 @@ export default function Pricing() {
           <h1 style={{
             fontSize: 'clamp(2.5rem, 5vw, 4rem)',
             fontWeight: 700,
-            color: '#F1F5F9',
+            color: C.textDark,
             letterSpacing: '-0.03em',
             marginBottom: '20px',
             fontFamily: "'Plus Jakarta Sans', sans-serif"
@@ -214,18 +214,18 @@ export default function Pricing() {
 
           <p style={{
             fontSize: '1.2rem',
-            color: '#6B9AB8',
+            color: C.textMid,
             maxWidth: '650px',
             margin: '0 auto 40px',
             lineHeight: '1.6',
             fontFamily: "'Plus Jakarta Sans', sans-serif"
           }}>
-            14-day free trial on all plans. No credit card required. Cancel anytime.
+            7-day free trial on all plans. No credit card required. Cancel anytime.
           </p>
 
           {/* Toggle Switch */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
-            <span style={{ fontSize: '0.95rem', fontWeight: billingCycle === 'monthly' ? 600 : 500, color: billingCycle === 'monthly' ? '#F1F5F9' : '#64748B', transition: 'color 0.2s', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Monthly</span>
+            <span style={{ fontSize: '0.95rem', fontWeight: billingCycle === 'monthly' ? 600 : 500, color: billingCycle === 'monthly' ? C.textDark : '#64748B', transition: 'color 0.2s', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Monthly</span>
 
             <button
               onClick={handleToggle}
@@ -233,7 +233,7 @@ export default function Pricing() {
                 width: '64px',
                 height: '34px',
                 borderRadius: '999px',
-                background: C.breeze,
+                background: C.oceanMid,
                 border: 'none',
                 position: 'relative',
                 cursor: 'pointer',
@@ -255,7 +255,7 @@ export default function Pricing() {
             </button>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: '0.95rem', fontWeight: billingCycle === 'annual' ? 600 : 500, color: billingCycle === 'annual' ? '#F1F5F9' : '#64748B', transition: 'color 0.2s', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Annual</span>
+              <span style={{ fontSize: '0.95rem', fontWeight: billingCycle === 'annual' ? 600 : 500, color: billingCycle === 'annual' ? C.textDark : '#64748B', transition: 'color 0.2s', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Annual</span>
               <span style={{
                 background: 'rgba(16, 185, 129, 0.1)',
                 color: '#10B981',
@@ -355,11 +355,11 @@ export default function Pricing() {
             ].map((plan, i) => {
               const isPopular = plan.popular;
               const isCustom = plan.monthlyPrice === undefined;
-              const isAnnual = typeof pricingAnnual !== 'undefined' ? pricingAnnual : (typeof billingCycle !== 'undefined' ? billingCycle === 'annual' : false);
+              const isAnnual = billingCycle === 'annual';
               let displayPriceTop = 'Talk to Sales';
               let priceSuffix = '';
               let displaySubtext = '';
-              const planSeats = typeof seats !== 'undefined' ? (seats[plan.id] || 1) : 1;
+              const planSeats = seats[plan.id] ?? 1;
 
               if (!isCustom) {
                 if (isAnnual) {
@@ -454,10 +454,10 @@ export default function Pricing() {
                     {!isCustom ? (
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', padding: '6px 0px', borderRadius: '8px', marginBottom: '24px', border: 'none' }}>
                         <span style={{ fontSize: '0.85rem', color: isPopular ? 'rgba(223,247,255,0.9)' : '#475569', fontWeight: 600 }}>Seats</span>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: isPopular ? 'rgba(255,255,255,0.1)' : '#F1F5F9', padding: '6px 12px', borderRadius: '6px', border: isPopular ? '1px solid rgba(255,255,255,0.2)' : '1px solid #E2E8F0' }}>
-                          <span style={{ fontSize: '1rem', cursor: 'pointer', color: isPopular ? '#FFFFFF' : '#0A2540', padding: '0 4px', userSelect: 'none' }} onClick={() => planSeats > 1 && setSeats(prev => ({ ...prev, [plan.id]: prev[plan.id] - 1 }))}>-</span>
-                          <span style={{ fontSize: '0.9rem', fontWeight: 700, color: isPopular ? '#FFFFFF' : '#0A2540', minWidth: '16px', textAlign: 'center' }}>{planSeats}</span>
-                          <span style={{ fontSize: '1rem', cursor: 'pointer', color: isPopular ? '#FFFFFF' : '#0A2540', padding: '0 4px', userSelect: 'none' }} onClick={() => setSeats(prev => ({ ...prev, [plan.id]: prev[plan.id] + 1 }))}>+</span>
+                        <div role="group" aria-label={`${plan.name} seats`} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: isPopular ? 'rgba(255,255,255,0.1)' : '#F1F5F9', padding: '6px 12px', borderRadius: '6px', border: isPopular ? '1px solid rgba(255,255,255,0.2)' : '1px solid #E2E8F0' }}>
+                          <button type="button" aria-label={`Decrease seats for ${plan.name}`} disabled={planSeats <= 1} style={{ fontSize: '1rem', fontFamily: 'inherit', lineHeight: 'inherit', border: 0, background: 'transparent', cursor: planSeats > 1 ? 'pointer' : 'not-allowed', color: isPopular ? '#FFFFFF' : '#0A2540', padding: '0 4px', userSelect: 'none' }} onClick={() => setSeats(prev => ({ ...prev, [plan.id]: Math.max(1, (prev[plan.id] ?? 1) - 1) }))}>-</button>
+                          <span aria-live="polite" aria-atomic="true" style={{ fontSize: '0.9rem', fontWeight: 700, color: isPopular ? '#FFFFFF' : '#0A2540', minWidth: '16px', textAlign: 'center' }}>{planSeats}</span>
+                          <button type="button" aria-label={`Increase seats for ${plan.name}`} style={{ fontSize: '1rem', fontFamily: 'inherit', lineHeight: 'inherit', border: 0, background: 'transparent', cursor: 'pointer', color: isPopular ? '#FFFFFF' : '#0A2540', padding: '0 4px', userSelect: 'none' }} onClick={() => setSeats(prev => ({ ...prev, [plan.id]: (prev[plan.id] ?? 1) + 1 }))}>+</button>
                         </div>
                       </div>
                     ) : (
@@ -486,7 +486,7 @@ export default function Pricing() {
                   </div>
 
                   <button
-                    onClick={() => { typeof navigate !== 'undefined' ? navigate('/signup?plan=' + plan.id) : window.location.href = '/signup?plan=' + plan.id }}
+                    onClick={() => navigate(`/signup?plan=${encodeURIComponent(plan.name)}&seats=${planSeats}&billing=${isAnnual ? 'annual' : 'monthly'}`)}
                     style={{
                       width: '100%',
                       background: isPopular ? `linear-gradient(135deg, ${C.breeze}, #5BB8F5)` : 'transparent',
@@ -581,7 +581,7 @@ export default function Pricing() {
                 zIndex: 1,
                 fontFamily: "'Plus Jakarta Sans', sans-serif"
               }}>
-                Still not sure? Try free for 14 days.
+                Still not sure? Try free for 7 days.
               </h2>
 
               <p style={{

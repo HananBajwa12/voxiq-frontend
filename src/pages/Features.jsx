@@ -425,22 +425,20 @@ export default function Features() {
             
             <div>
               <span style={{ color: '#6C47FF', fontSize: '0.85rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', display: 'block', marginBottom: '12px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                Zero manual data entry
+                Connect your CRM workflow
               </span>
               <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: '#F1F5F9', letterSpacing: '-0.025em', lineHeight: '1.15', marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                Every call logged. Every outcome synced. Automatically.
+                Connect your calling workflow to GoHighLevel.
               </h2>
               <p style={{ fontSize: '1.1rem', color: '#6B9AB8', lineHeight: '1.6', marginBottom: '32px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                Stop asking reps to update the CRM after every call. Voxiq logs call outcomes, duration, recordings, and notes directly into your CRM the second the call ends.
+                Connect GoHighLevel to sync contacts and update your pipeline based on call outcomes.
               </p>
               
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 40px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {[
-                  'Native integrations: Pipedrive, Zapier',
-                  'Auto-log: call duration, outcome, recording, notes',
-                  'Two-way sync — pull contact data from CRM into Voxiq',
-                  'Custom field mapping for your CRM setup',
-                  'Zapier integration for any other tool'
+                  'Native CRM integration: GoHighLevel. Workflow automation via Zapier.',
+                  'Contact sync with GoHighLevel',
+                  'Call outcome triggers and pipeline updates'
                 ].map((bullet, idx) => (
                   <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.95rem', color: '#6B9AB8', fontWeight: 600, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     <CheckCircle2 size={18} color="#6C47FF" style={{ flexShrink: 0 }} /> {bullet}
@@ -454,7 +452,7 @@ export default function Features() {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              {/* CRM Connections diagram mockup */}
+              {/* Neutral CRM workflow diagram; does not depict a third-party CRM UI. */}
               <div style={{
                 background: '#111929',
                 border: '1px solid #1e2537',
@@ -493,9 +491,9 @@ export default function Features() {
                   <line x1="20%" y1="80%" x2="50%" y2="50%" stroke="rgba(124, 109, 250, 0.3)" strokeWidth="3" strokeDasharray="5,5" />
                 </svg>
 
-                {/* Surrounding CRM nodes */}
-                <div style={{ position: 'absolute', top: '15%', right: '10%', background: '#020D1A', border: '1px solid #00A1E0', color: '#00A1E0', padding: '6px 14px', borderRadius: '999px', fontSize: '0.8rem', fontWeight: 800, boxShadow: '0 4px 10px rgba(0,0,0,0.2)', zIndex: 2 }}>Slack</div>
-                <div style={{ position: 'absolute', bottom: '15%', left: '10%', background: '#020D1A', border: '1px solid #00b050', color: '#00b050', padding: '6px 14px', borderRadius: '999px', fontSize: '0.8rem', fontWeight: 800, boxShadow: '0 4px 10px rgba(0,0,0,0.2)', zIndex: 2 }}>Pipedrive</div>
+                {/* Generic workflow nodes */}
+                <div style={{ position: 'absolute', top: '15%', right: '10%', background: '#020D1A', border: '1px solid #00A1E0', color: '#00A1E0', padding: '6px 14px', borderRadius: '999px', fontSize: '0.8rem', fontWeight: 800, boxShadow: '0 4px 10px rgba(0,0,0,0.2)', zIndex: 2 }}>Call outcomes</div>
+                <div style={{ position: 'absolute', bottom: '15%', left: '10%', background: '#020D1A', border: '1px solid #00b050', color: '#00b050', padding: '6px 14px', borderRadius: '999px', fontSize: '0.8rem', fontWeight: 800, boxShadow: '0 4px 10px rgba(0,0,0,0.2)', zIndex: 2 }}>CRM contacts</div>
               </div>
             </div>
 
@@ -589,7 +587,7 @@ export default function Features() {
       {/* 7. INTEGRATIONS STRIP */}
       <section id="integrations" style={{ padding: '80px 0', background: '#020D1A', borderTop: '1px solid rgba(127,205,255,0.08)', borderBottom: '1px solid rgba(127,205,255,0.08)' }}>
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#F1F5F9', letterSpacing: '-0.02em', marginBottom: '32px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Works with the tools your team already uses</h3>
+          <h3 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#F1F5F9', letterSpacing: '-0.02em', marginBottom: '32px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>CRM integration and workflow automation</h3>
           
           <div style={{
             display: 'flex',
@@ -599,8 +597,11 @@ export default function Features() {
             flexWrap: 'wrap',
             marginBottom: '32px'
           }} className="integrations-grid">
-            {['Pipedrive', 'Zapier', 'Slack', 'Google Calendar', 'Outreach', 'ActiveCampaign', 'Mailchimp'].map((logo, idx) => (
-              <span key={idx} style={{
+            {[
+              { label: 'GoHighLevel (Native)', path: '/integrations' },
+              { label: 'Zapier', path: '/integrations#zapier' }
+            ].map(({ label, path }) => (
+              <Link key={path} to={path} style={{
                 background: '#020D1A',
                 border: '1px solid rgba(127,205,255,0.08)',
                 padding: '10px 22px',
@@ -609,20 +610,20 @@ export default function Features() {
                 fontSize: '0.9rem',
                 color: '#6B9AB8',
                 boxShadow: '0 4px 10px rgba(108,71,255,0.05)',
-                fontFamily: "'Plus Jakarta Sans', sans-serif"
+                fontFamily: "'Plus Jakarta Sans', sans-serif", textDecoration: 'none'
               }}>
-                {logo}
-              </span>
+                {label}
+              </Link>
             ))}
           </div>
 
           <p style={{ fontSize: '0.95rem', color: '#6B9AB8', margin: '0 0 20px', fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-            Don't see your tool? Enterprise plans include custom integrations.
+            Connect GoHighLevel directly or use Zapier to automate workflows with other tools.
           </p>
 
-          <a href="#signup" style={{ textDecoration: 'none', color: '#6C47FF', fontWeight: 800, fontSize: '0.95rem', display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+          <Link to="/integrations" style={{ textDecoration: 'none', color: '#6C47FF', fontWeight: 800, fontSize: '0.95rem', display: 'inline-flex', alignItems: 'center', gap: '6px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             View all integrations <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
       </section>
 

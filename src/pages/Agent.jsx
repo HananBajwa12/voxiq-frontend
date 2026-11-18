@@ -6,6 +6,7 @@ import { API_URL } from '../config/env';
 import { fetchJson } from '../lib/api';
 import { clearToken, getToken } from '../lib/auth';
 import { countries } from '../lib/countries';
+import BrandLogo from '../components/BrandLogo';
 
 // Error label helper
 function errorLabel(err) {
@@ -1448,18 +1449,7 @@ export default function Agent() {
       }}>
         {/* Voxiq Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{
-            width: 38, height: 38,
-            background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
-            borderRadius: 10,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            flexShrink: 0,
-            boxShadow: '0 4px 14px rgba(99,102,241,0.5)',
-          }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.46 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-          </div>
+          <BrandLogo compact style={{ height: 38 }} />
           <div>
             <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 900, fontSize: '1.2rem', color: 'white', letterSpacing: '-0.02em', lineHeight: 1.1 }}>Voxiq</div>
             <div style={{ fontSize: '0.6rem', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Agent Dashboard</div>

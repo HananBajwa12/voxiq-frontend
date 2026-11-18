@@ -33,25 +33,47 @@ const C = {
   warn: '#F59E0B',
 };
 
-const CARD_HOVER_CSS = `
-  .ib-card-hover {
+const PAGE_CSS = `
+  .manual-dialer-page .ib-card-hover {
     transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
   }
-  .ib-card-hover:hover {
+  .manual-dialer-page .ib-card-hover:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 48px rgba(127,205,255,.15);
     border-color: ${C.breeze} !important;
   }
+  @media (max-width: 767px) {
+    .manual-dialer-page .manual-dialer-hero-content {
+      max-width: 100% !important;
+    }
+    .manual-dialer-page .manual-dialer-hero-actions {
+      flex-wrap: wrap;
+    }
+    .manual-dialer-page .stats-row,
+    .manual-dialer-page .benefits-grid,
+    .manual-dialer-page .steps-container,
+    .manual-dialer-page .feature-row,
+    .manual-dialer-page .related-grid {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+    .manual-dialer-page .feature-row {
+      gap: 32px !important;
+    }
+    .manual-dialer-page .manual-dialer-cta {
+      padding-bottom: 240px !important;
+    }
+  }
 `;
 
-function InjectCardHoverStyles() {
+function InjectPageStyles() {
   useEffect(() => {
-    const id = 'voxiq-inbound-styles';
+    const id = 'voxxiq-manual-dialer-styles';
     if (!document.getElementById(id)) {
       const s = document.createElement('style');
       s.id = id;
-      s.textContent = CARD_HOVER_CSS;
+      s.textContent = PAGE_CSS;
       document.head.appendChild(s);
+      return () => s.remove();
     }
   }, []);
   return null;
@@ -93,8 +115,8 @@ export default function ManualDialer() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ background: '#020D1A', minHeight: '100vh', overflowX: 'hidden' }}>
-      <InjectCardHoverStyles />
+    <div className="manual-dialer-page" style={{ background: '#020D1A', minHeight: '100vh', overflowX: 'hidden' }}>
+      <InjectPageStyles />
 
       {/* 1. Feature Hero */}
                   <section style={{ 
@@ -133,7 +155,7 @@ export default function ManualDialer() {
         }} />
 
         <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', position: 'relative', zIndex: 10, width: '100%' }}>
-          <div style={{ maxWidth: '58%', textAlign: 'left' }}>
+          <div className="manual-dialer-hero-content" style={{ maxWidth: '58%', textAlign: 'left' }}>
             
             <span style={{
               color: '#7FCDFF',
@@ -171,7 +193,7 @@ export default function ManualDialer() {
               Perfect for outbound campaigns where reps need to preview contacts and make calls one-by-one with full control.
             </p>
 
-            <div style={{ display: 'flex', gap: '16px', justifyContent: 'flex-start', marginBottom: '60px' }}>
+            <div className="manual-dialer-hero-actions" style={{ display: 'flex', gap: '16px', justifyContent: 'flex-start', marginBottom: '60px' }}>
               <Link
                 to="/signup"
                 style={{
@@ -263,7 +285,7 @@ export default function ManualDialer() {
                 {
                   icon: <Keyboard size={24} color={C.oceanMid} />,
                   title: 'Hotkey Shortcuts',
-                  desc: 'Keyboard shortcuts for dial, disposition, skip, and voicemail drop — maximum speed.'
+                  desc: 'Press Enter in the phone number field to dial, or use F1–F5 to log call outcomes.'
                 }
               ].map((card, idx) => (
                 <div key={idx} className="ib-card-hover" style={{
@@ -308,9 +330,9 @@ export default function ManualDialer() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="steps-container">
               {[
-                { step: '01', title: 'Review contact card and CRM history', desc: 'Verify buyer detail rows, notes, and past ticket states.' },
-                { step: '02', title: 'Click dial (or press D) to connect', desc: 'Outbound voice channel matches identity local area code pools.' },
-                { step: '03', title: 'Log outcome with one click after the call', desc: 'Sync session parameters back to CRM records instantly.' }
+                { step: '01', title: 'Review contact card and CRM history', desc: 'Review the contact’s details, notes, and recent activity before calling.' },
+                { step: '02', title: 'Click Dial or press Enter to connect', desc: 'Click the call button or press Enter in the phone number field when you’re ready to call.' },
+                { step: '03', title: 'Log outcome with one click after the call', desc: 'Select a call outcome and save your notes. Ask your admin to confirm CRM activity syncing for your integration.' }
               ].map((step, idx) => (
                 <div key={idx} className="ib-card-hover" style={{
                   background: C.white,
@@ -354,7 +376,7 @@ export default function ManualDialer() {
                     When to use manual vs auto dialer
                   </h2>
                   <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.6', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                    Identify target conversion curves. Deploy manual dialing when deals require custom qualification or company research.
+                    Use manual dialing when reps need to research a prospect before calling. Use the auto dialer when reps are working through a prepared call list.
                   </p>
                 </div>
                 <div style={{
@@ -365,7 +387,7 @@ export default function ManualDialer() {
                   padding: '24px',
                   boxShadow: '0 24px 48px rgba(0,0,0,.3)'
                 }}>
-                  <h4 style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: C.breeze }}>Mode Advisor HUD</h4>
+                  <h4 style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: C.breeze }}>When to use manual dialing</h4>
                   <div style={{ background: 'rgba(127,205,255,.04)', border: '1px solid rgba(127,205,255,.08)', padding: '12px', borderRadius: '10px', fontSize: '0.8rem', color: C.breezeLight }}>
                     Recommended Mode: Manual Dialer (Enterprise Target segment)
                   </div>
@@ -390,16 +412,16 @@ export default function ManualDialer() {
                 }}>
                   <h4 style={{ margin: '0 0 12px 0', fontSize: '0.9rem', color: C.breeze }}>Hotkey Map</h4>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.8rem', color: C.breezeLight }}>
-                    <div><kbd style={{ background: 'rgba(127,205,255,.1)', border: '1px solid rgba(127,205,255,.2)', padding: '2px 6px', borderRadius: '4px' }}>D</kbd> - Start Dialing</div>
-                    <div><kbd style={{ background: 'rgba(127,205,255,.1)', border: '1px solid rgba(127,205,255,.2)', padding: '2px 6px', borderRadius: '4px' }}>V</kbd> - Instant VM Drop</div>
+                    <div><kbd style={{ background: 'rgba(127,205,255,.1)', border: '1px solid rgba(127,205,255,.2)', padding: '2px 6px', borderRadius: '4px' }}>Enter</kbd> - Dial from phone number field</div>
+                    <div><kbd style={{ background: 'rgba(127,205,255,.1)', border: '1px solid rgba(127,205,255,.2)', padding: '2px 6px', borderRadius: '4px' }}>F3</kbd> - Log Voicemail outcome</div>
                   </div>
                 </div>
                 <div>
                   <h2 style={{ fontSize: '2.25rem', fontWeight: 900, color: C.breezeLight, marginBottom: '20px', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em', lineHeight: '1.2' }}>
-                    Keyboard shortcuts that save 30 min/day
+                    Keyboard shortcuts for common call actions
                   </h2>
                   <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', lineHeight: '1.6', marginBottom: '24px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                    Stripping administrative click actions saves key seconds on every connection event loop.
+                    Press Enter in the phone number field to dial. When you’re not typing in a field, use F1–F5 to log a call outcome.
                   </p>
                 </div>
               </div>
@@ -447,7 +469,7 @@ export default function ManualDialer() {
 
       {/* CTA Section */}
       <FadeInSection>
-        <section style={{
+        <section className="manual-dialer-cta" style={{
           padding: '100px 0 160px',
           background: `linear-gradient(135deg, ${C.oceanDeep} 0%, ${C.oceanMid} 50%, ${C.oceanDeep} 100%)`,
         }}>

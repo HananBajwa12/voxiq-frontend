@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import BrandLogo from './BrandLogo';
 import { useState, useEffect, useRef } from 'react';
 import {
   Phone,
@@ -123,7 +124,7 @@ export default function Navbar() {
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
 
   return (
-    <div style={{
+    <div data-site-header style={{
       position: 'sticky',
       top: 0,
       zIndex: 1000,
@@ -210,15 +211,7 @@ export default function Navbar() {
         }}>
           {/* Logo */}
           <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{
-              fontWeight: 700,
-              fontSize: '22px',
-              color: '#0A2540',
-              letterSpacing: '-0.5px',
-              fontFamily: "'Space Grotesk', sans-serif"
-            }}>
-              Vox<span style={{ color: '#0D3B6E' }}>iq</span>
-            </span>
+            <BrandLogo />
           </Link>
 
           {/* Center Links (Desktop) */}
@@ -322,7 +315,10 @@ export default function Navbar() {
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                         {[
                           { title: 'GoHighLevel (Native)', path: '/integrations' },
-                          { title: 'Zapier', path: '/integrations/zapier' }
+                          { title: 'Zapier', path: '/integrations#zapier' },
+                          { title: 'Salesforce', path: '/integrations#salesforce' },
+                          { title: 'HubSpot', path: '/integrations#hubspot' },
+                          { title: 'Outreach', path: '/integrations#outreach' }
                         ].map((item, idx) => (
                           <Link to={item.path} key={idx} className="prod-text-link" onClick={() => setProductsOpen(false)}>
                             {item.title}
@@ -403,7 +399,8 @@ export default function Navbar() {
                         { title: 'Sales Teams', desc: 'High-volume outbound & inbound', path: '/solutions/sales-teams', icon: <Users size={18} /> },
                         { title: 'SDR / BDR Teams', desc: 'Prospect faster, book more demos', path: '/solutions/sdr-teams', icon: <Target size={18} /> },
                         { title: 'Small Business', desc: 'Affordable calling for lean teams', path: '/solutions/small-business', icon: <Building2 size={18} /> },
-                        { title: 'Enterprise', desc: 'Scale to thousands of reps', path: '/solutions/enterprise', icon: <Briefcase size={18} /> }
+                        { title: 'Enterprise', desc: 'Scale to thousands of reps', path: '/solutions/enterprise', icon: <Briefcase size={18} /> },
+                        { title: 'BPO & Call Centers', desc: 'Run every client campaign in one place.', path: '/solutions/bpo', icon: <Building2 size={18} /> }
                       ].map((item, idx) => (
                         <Link to={item.path} key={idx} className="dropdown-card-item" onClick={() => setSolutionsOpen(false)}>
                           <div className="dropdown-card-icon-box">
@@ -538,32 +535,22 @@ export default function Navbar() {
               to="/signup"
               style={{
                 textDecoration: 'none',
-                background: 'linear-gradient(135deg, #7FCDFF, #5BB8F5)',
-                color: '#020D1A',
-                border: 'none',
+                background: '#5BB8F5',
+                color: '#FFFFFF',
                 padding: '10px 22px',
                 borderRadius: '10px',
                 fontWeight: 700,
                 fontSize: '14px',
-                boxShadow: '0 0 20px rgba(127,205,255,0.25), 0 4px 12px rgba(127,205,255,0.15)',
-                transition: 'all 0.2s ease',
+                transition: 'background 0.15s',
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxSizing: 'border-box'
+                boxShadow: '0 0 20px rgba(127,205,255,0.25)'
               }}
-              className="btn-trial"
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = '0 0 32px rgba(127,205,255,0.45), 0 4px 20px rgba(127,205,255,0.3)';
-                e.currentTarget.style.transform = 'translateY(-1px)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = '0 0 20px rgba(127,205,255,0.25), 0 4px 12px rgba(127,205,255,0.15)';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
+              className="signup-link"
             >
-              Start Free Trial
+              Signup
             </Link>
 
             {/* Hamburger Button (Mobile Only) */}
@@ -577,7 +564,7 @@ export default function Navbar() {
                   border: 'none',
                   cursor: 'pointer',
                   padding: '8px',
-                  color: '#F1F5F9'
+                  color: '#0A2540'
                 }}
                 className="hamburger-btn"
               >
@@ -625,7 +612,7 @@ export default function Navbar() {
           }}>
             {/* Drawer Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
-              <span style={{ fontWeight: 700, fontSize: '1.25rem', color: '#F1F5F9' }}>Voxiq</span>
+              <Link to="/" onClick={() => setMenuOpen(false)} style={{ background: '#fff', padding: '6px 10px', borderRadius: 8 }}><BrandLogo /></Link>
               <button onClick={() => setMenuOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#64748B' }}>
                 <X size={24} />
               </button>
@@ -673,7 +660,10 @@ export default function Navbar() {
 
                     <h5 style={{ margin: '8px 0 2px', fontSize: '10px', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Integrations</h5>
                     <Link to="/integrations" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>GoHighLevel (Native)</Link>
-                    <Link to="/integrations/zapier" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Zapier</Link>
+                    <Link to="/integrations#zapier" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Zapier</Link>
+                    <Link to="/integrations#salesforce" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Salesforce</Link>
+                    <Link to="/integrations#hubspot" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>HubSpot</Link>
+                    <Link to="/integrations#outreach" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Outreach</Link>
                   </div>
                 )}
               </div>
@@ -707,6 +697,7 @@ export default function Navbar() {
                     <Link to="/solutions/sdr-teams" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>SDR / BDR Teams</Link>
                     <Link to="/solutions/small-business" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Small Business</Link>
                     <Link to="/solutions/enterprise" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Enterprise</Link>
+                    <Link to="/solutions/bpo" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}><span style={{ display: 'block' }}>BPO &amp; Call Centers</span><span style={{ display: 'block', fontSize: '11px', fontWeight: 400, color: '#64748B' }}>Run every client campaign in one place.</span></Link>
 
                     <h5 style={{ margin: '8px 0 2px', fontSize: '10px', color: '#475569', textTransform: 'uppercase', letterSpacing: '0.05em' }}>By Industry</h5>
                     <Link to="/solutions/real-estate" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontSize: '13px', fontWeight: 600 }}>Real Estate</Link>
@@ -725,7 +716,7 @@ export default function Navbar() {
             {/* Mobile Drawer Bottom Action CTAs */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', borderTop: '1px solid #1e2537', paddingTop: '20px', marginTop: '20px' }}>
               <Link to="/login" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', color: '#94A3B8', fontWeight: 600, fontSize: '14px', textAlign: 'center', padding: '12px 0', border: '1px solid #1e2537', borderRadius: '8px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Login</Link>
-              <Link to="/signup" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', background: '#7C6DFA', color: 'white', fontWeight: 700, fontSize: '14px', textAlign: 'center', padding: '12px 0', borderRadius: '8px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Start Free Trial</Link>
+              <Link to="/signup" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', background: '#5BB8F5', color: '#FFFFFF', fontWeight: 700, fontSize: '14px', textAlign: 'center', padding: '12px 0', borderRadius: '10px', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Signup</Link>
             </div>
           </div>
         </>
@@ -831,6 +822,9 @@ export default function Navbar() {
         .login-link:hover {
           color: #0A2540 !important;
         }
+        .signup-link:hover {
+          background: #49ACEF !important;
+        }
         .plain-nav-link:hover {
           color: #0A2540 !important;
         }
@@ -842,7 +836,7 @@ export default function Navbar() {
         .announcement-mobile-text { display: none; }
 
         @media (max-width: 968px) {
-          .nav-links, .login-link, .btn-trial {
+          .nav-links, .login-link, .signup-link {
             display: none !important;
           }
           .hamburger-btn {

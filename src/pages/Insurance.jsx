@@ -576,7 +576,7 @@ export default function Insurance() {
               overflow: 'hidden'
             }}>
               <h2 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.75rem)', fontWeight: 700, color: C.white, marginBottom: '16px', letterSpacing: '-0.02em' }}>
-                Start calling renewals faster — free for 14 days
+                Start calling renewals faster — free for 7 days
               </h2>
               <p style={{ fontSize: '1.1rem', color: 'rgba(127,205,255,.65)', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>
                 No credit card. Full access. Cancel anytime.

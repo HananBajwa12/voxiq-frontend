@@ -529,23 +529,6 @@ export default function Enterprise() {
         </section>
       </FadeInSection>
 
-      {/* 7. INTEGRATIONS */}
-      <section style={{ padding: '80px 0', background: C.foam }}>
-        <div className="container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 2rem', textAlign: 'center' }}>
-          <h4 style={{ fontSize: '11px', fontWeight: 700, color: C.textMuted, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '32px' }}>
-            Natively connects with your tech stack
-          </h4>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '40px', flexWrap: 'wrap', marginBottom: '32px', opacity: 0.85 }}>
-            {['Salesforce', 'Okta', 'Slack'].map((stack, i) => (
-              <span key={i} style={{ fontSize: '18px', fontWeight: 700, color: C.textMid }}>{stack}</span>
-            ))}
-          </div>
-          <p style={{ fontSize: '14px', color: C.textMid, maxWidth: '560px', margin: '0 auto' }}>
-            Native API and SSO support for enterprise identity and CRM systems.
-          </p>
-        </div>
-      </section>
-
       {/* 8. BOTTOM CTA */}
       <FadeInSection>
         <section style={{

@@ -957,9 +957,11 @@ tr:last-child td {
 }
 
 .auth-logo-box {
-  width: 76px;
+  width: fit-content;
+  max-width: 100%;
   height: 76px;
-  background: var(--vx-accent-soft);
+  padding: 12px;
+  background: #fff;
   border-radius: 20px;
   display: flex;
   align-items: center;

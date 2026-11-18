@@ -1,3 +1,4 @@
+import BrandLogo from '../components/BrandLogo';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -1873,7 +1874,7 @@ export default function Admin() {
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.45)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
           <div style={{ background: '#fff', borderRadius: 20, padding: '36px 32px 28px', maxWidth: 420, width: '100%', textAlign: 'center', boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }}>
             <div style={{ background: '#f8fafc', borderRadius: 12, padding: '10px 14px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: 18 }}>
-              <img src="/logo.png" alt="Voxiq" style={{ height: 32 }} />
+              <BrandLogo style={{ height: 32 }} />
             </div>
             <div style={{ fontSize: '1rem', color: '#0f172a', fontWeight: 600, marginBottom: 8, lineHeight: 1.5 }}>{errorModal}</div>
             <button
@@ -1888,7 +1889,7 @@ export default function Admin() {
         {/* Logo */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: isSidebarCollapsed ? 'center' : 'flex-start', gap: 8, padding: '4px 2px 16px', borderBottom: '1px solid rgba(255,255,255,0.08)', marginBottom: 12 }}>
           <div style={{ background: '#fff', borderRadius: 10, padding: '6px 8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/logo.png" alt="Voxiq" style={{ height: isSidebarCollapsed ? 22 : 28, display: 'block' }} />
+            <BrandLogo compact={isSidebarCollapsed} style={{ height: isSidebarCollapsed ? 22 : 28, display: 'block' }} />
           </div>
           {!isSidebarCollapsed && (
             <div style={{ paddingLeft: 2 }}>
@@ -1980,7 +1981,7 @@ export default function Admin() {
       <main className="admin-content">
         {isLoading && !authState.user && (
           <div style={{ position: 'fixed', inset: 0, background: '#fff', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', zIndex: 9999 }}>
-            <img src="/logo.png" alt="Voxiq" style={{ height: 48, marginBottom: 28, opacity: 0.9 }} />
+            <BrandLogo style={{ height: 48, marginBottom: 28, opacity: 0.9 }} />
             <div style={{
               width: 44, height: 44, borderRadius: '50%',
               border: '4px solid #e0e7ff',
